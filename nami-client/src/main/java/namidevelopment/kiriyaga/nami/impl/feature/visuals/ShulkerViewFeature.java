@@ -43,13 +43,13 @@ public class ShulkerViewFeature extends Feature {
 
     public enum Mode { MULTI, SINGLE }
 
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.SINGLE));
-    public final BoolSetting tooltip = addSetting(new BoolSetting("Tooltip", true));
-    public final BoolSetting compact = addSetting(new BoolSetting("Compact", false));
-    public final BoolSetting bothSides = addSetting(new BoolSetting("BothSides", true));
-    public final BoolSetting borders = addSetting(new BoolSetting("Borders", true));
-    public final DoubleSetting scale = addSetting(new DoubleSetting("Scale", 1, 0.5, 1.5));
-    public final DoubleSetting scrollSensitivity = addSetting(new DoubleSetting("Sensitivity", 1, 0.5, 3));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.SINGLE));
+    public final BoolSetting tooltip = addSetting(new BoolSetting("Tooltip", "提示", true));
+    public final BoolSetting compact = addSetting(new BoolSetting("Compact", "紧凑", false));
+    public final BoolSetting bothSides = addSetting(new BoolSetting("BothSides", "两侧", true));
+    public final BoolSetting borders = addSetting(new BoolSetting("Borders", "边框", true));
+    public final DoubleSetting scale = addSetting(new DoubleSetting("Scale", "缩放", 1, 0.5, 1.5));
+    public final DoubleSetting scrollSensitivity = addSetting(new DoubleSetting("Sensitivity", "灵敏度", 1, 0.5, 3));
 
     private static final int GRID_WIDTH = 18;
     private static final int GRID_HEIGHT = 18;
@@ -69,7 +69,7 @@ public class ShulkerViewFeature extends Feature {
     private ItemStack frozenStack = ItemStack.EMPTY;
 
 
-    public ShulkerViewFeature() {super("ShulkerView", "Shows shulker content preview.", FeatureCategory.of("Render"), "shulkerview");
+    public ShulkerViewFeature() {super("ShulkerView", "潜影盒查看", "显示潜影盒内容预览。", FeatureCategory.of("Render"), "shulkerview");
         bothSides.setShowCondition(() -> mode.get() == Mode.MULTI);
         scrollSensitivity.setShowCondition(() -> mode.get() == Mode.MULTI);
     }

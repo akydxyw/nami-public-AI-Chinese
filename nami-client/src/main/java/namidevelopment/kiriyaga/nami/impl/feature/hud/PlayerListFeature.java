@@ -22,17 +22,17 @@ public class PlayerListFeature extends HudElementFeature {
 
     public enum SortMode { ASCENDING, DESCENDING }
 
-    public final EnumSetting<SortMode> sortMode = addSetting(new EnumSetting<>("Sort", SortMode.DESCENDING));
-    public final BoolSetting showDistance = addSetting(new BoolSetting("Distance", true));
-    public final BoolSetting showHealth = addSetting(new BoolSetting("Health", true));
-    public final BoolSetting totemPops = addSetting(new BoolSetting("TotemPops", true));
-    public final BoolSetting self = addSetting(new BoolSetting("Self", true));
+    public final EnumSetting<SortMode> sortMode = addSetting(new EnumSetting<>("Sort", "排序", SortMode.DESCENDING));
+    public final BoolSetting showDistance = addSetting(new BoolSetting("Distance", "距离", true));
+    public final BoolSetting showHealth = addSetting(new BoolSetting("Health", "生命值", true));
+    public final BoolSetting totemPops = addSetting(new BoolSetting("TotemPops", "图腾爆裂", true));
+    public final BoolSetting self = addSetting(new BoolSetting("Self", "自己", true));
 
     private final List<TextElement> elements = new ArrayList<>();
     private final DecimalFormat dec = new DecimalFormat("0.#");
 
     public PlayerListFeature() {
-        super("PlayerList", "Shows nearby players", 0, 0, 80, 10);
+        super("玩家列表", "显示附近的玩家", 0, 0, 80, 10);
     }
 
     @SubscribeEvent

@@ -12,10 +12,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;import static namidevelopme
 @RegisterFeature
 public class FacingFeature extends HudElementFeature {
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
 
     public FacingFeature() {
-        super("Facing", "Displays player facing direction.", 0, 0, 50, 9);
+        super("朝向", "显示玩家面朝方向。", 0, 0, 50, 9);
     }
 
     @Override
@@ -37,11 +37,11 @@ public class FacingFeature extends HudElementFeature {
         double absDz = Math.abs(dz);
 
         String dir = switch ((int) Math.floor((yaw + 45) / 90) % 4) {
-            case 0 -> "South";
-            case 1 -> "West";
-            case 2 -> "North";
-            case 3 -> "East";
-            default -> "Invalid";
+            case 0 -> "南";
+            case 1 -> "西";
+            case 2 -> "北";
+            case 3 -> "东";
+            default -> "无效";
         };
 
         String axisPart;

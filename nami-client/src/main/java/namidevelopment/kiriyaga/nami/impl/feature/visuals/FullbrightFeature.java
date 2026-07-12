@@ -21,12 +21,12 @@ package namidevelopment.kiriyaga.nami.impl.feature.visuals;
             GAMMA, POTION
         }
 
-        public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.GAMMA));
-        public final DoubleSetting amount = addSetting(new DoubleSetting("Amount", 2, 1, 25));
+        public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.GAMMA));
+        public final DoubleSetting amount = addSetting(new DoubleSetting("Amount", "数值", 2, 1, 25));
 
 
         public FullbrightFeature() {
-            super("Fullbright", "Modifies your game brightness", FeatureCategory.of("Render"), "autogamma", "gamma", "autogmam");
+            super("Fullbright", "全亮", "修改游戏亮度", FeatureCategory.of("Render"), "autogamma", "gamma", "autogmam");
             amount.setShowCondition(() -> mode.get() == Mode.GAMMA);
         }
 

@@ -10,10 +10,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class PingFeature extends HudElementFeature {
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
 
     public PingFeature() {
-        super("Ping", "Displays current Ping.", 0, 0, 50, 9);
+        super("延迟", "显示当前延迟。", 0, 0, 50, 9);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class PingFeature extends HudElementFeature {
         String textStr;
 
         if (displayLabel.get()) {
-            textStr = "Ping: " + ping;
+            textStr = "延迟: " + ping;
         } else {
             textStr = String.valueOf(ping);
         }
@@ -31,7 +31,7 @@ public class PingFeature extends HudElementFeature {
         height = FONT_SERVICE.getHeight();
 
         if (displayLabel.get()) {
-            return CAT_FORMAT.format("{global}Ping: {white}" + ping);
+            return CAT_FORMAT.format("{global}延迟: {white}" + ping);
         } else {
             return Component.literal(textStr);
         }

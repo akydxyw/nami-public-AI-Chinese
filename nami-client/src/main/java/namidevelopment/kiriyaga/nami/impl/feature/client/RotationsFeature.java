@@ -15,18 +15,18 @@ import static namidevelopment.kiriyaga.nami.Nami.FUTURE;
 @RegisterFeature
 public class RotationsFeature extends Feature implements RotationsFeatureConfig {
 
-    public final EnumSetting<RotationMode> rotation = addSetting(new EnumSetting<>("Rotation",RotationMode.MOTION));
-    public final DoubleSetting rotationSpeed = addSetting(new DoubleSetting("Speed", 360, 25, 360));
-    public final DoubleSetting rotationEaseFactor = addSetting(new DoubleSetting("Ease", 1, 0.5, 1));
-    public final DoubleSetting rotationThreshold = addSetting(new DoubleSetting("Threshold", 5, 3, 15));
-    public final IntSetting ticksBeforeRelease = addSetting(new IntSetting("Hold", 0, 00, 30));
-    public final EnumSetting<JitterMode> jitter = addSetting(new EnumSetting<>("Jitter",JitterMode.NORMAL));
-    public final BoolSetting moveFix = addSetting(new BoolSetting("MoveFix", true));
-    public final BoolSetting render = addSetting(new BoolSetting("Render", false));
-    public final BoolSetting futureRotations = addSetting(new BoolSetting("FutureRotations", false));
+    public final EnumSetting<RotationMode> rotation = addSetting(new EnumSetting<>("Rotation", "旋转", RotationMode.MOTION));
+    public final DoubleSetting rotationSpeed = addSetting(new DoubleSetting("Speed", "速度", 360, 25, 360));
+    public final DoubleSetting rotationEaseFactor = addSetting(new DoubleSetting("Ease", "缓动", 1, 0.5, 1));
+    public final DoubleSetting rotationThreshold = addSetting(new DoubleSetting("Threshold", "阈值", 5, 3, 15));
+    public final IntSetting ticksBeforeRelease = addSetting(new IntSetting("Hold", "保持", 0, 00, 30));
+    public final EnumSetting<JitterMode> jitter = addSetting(new EnumSetting<>("Jitter", "抖动", JitterMode.NORMAL));
+    public final BoolSetting moveFix = addSetting(new BoolSetting("MoveFix", "移动修复", true));
+    public final BoolSetting render = addSetting(new BoolSetting("Render", "渲染", false));
+    public final BoolSetting futureRotations = addSetting(new BoolSetting("FutureRotations", "未来旋转", false));
 
     public RotationsFeature() {
-        super("Rotations", "Client rotations configuration.", FeatureCategory.of("Client"), "rotate", "rotationSERVICE", "roate", "toationSERVICE");
+        super("Rotations", "旋转", "客户端旋转配置。", FeatureCategory.of("Client"), "rotate", "rotationSERVICE", "roate", "toationSERVICE");
         if (!this.isEnabled())
             this.toggle();
 //        jitterSpeed.setShowCondition(() -> jitterAmount.get()>0);

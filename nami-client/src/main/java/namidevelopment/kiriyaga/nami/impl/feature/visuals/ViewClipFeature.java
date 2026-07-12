@@ -17,14 +17,14 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class ViewClipFeature extends Feature {
 
-    public final DoubleSetting distance = addSetting(new DoubleSetting("Distance", 3.5, 1, 9));
-    public final BoolSetting animate = addSetting(new BoolSetting("Animation", true));
-    public final BoolSetting visGraph = addSetting(new BoolSetting("NoCull", true));
+    public final DoubleSetting distance = addSetting(new DoubleSetting("Distance", "距离", 3.5, 1, 9));
+    public final BoolSetting animate = addSetting(new BoolSetting("Animation", "动画", true));
+    public final BoolSetting visGraph = addSetting(new BoolSetting("NoCull", "无剔除", true));
 
     private float currentDistance = 3.5f;
 
     public ViewClipFeature() {
-        super("ViewClip", "Disables block clipping and extends camera distance.", FeatureCategory.of("Render"), "viewclip");
+        super("ViewClip", "视角穿透", "禁用方块碰撞并扩展相机距离。", FeatureCategory.of("Render"), "viewclip");
     }
 
     @SubscribeEvent

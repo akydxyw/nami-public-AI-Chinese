@@ -37,18 +37,18 @@ public class FuckerFeature extends Feature {
         GRASS
     }
 
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.FARM));
-    public final DoubleSetting distance = addSetting(new DoubleSetting("Range", 4.5, 1.0, 6.0));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting grim = addSetting(new BoolSetting("Grim", false));
-    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", true));
-    public final IntSetting radius = addSetting(new IntSetting("Radius", 3, 1, 6));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.FARM));
+    public final DoubleSetting distance = addSetting(new DoubleSetting("Range", "范围", 4.5, 1.0, 6.0));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final BoolSetting grim = addSetting(new BoolSetting("Grim", "Grim", false));
+    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", "严格方向", true));
+    public final IntSetting radius = addSetting(new IntSetting("Radius", "半径", 3, 1, 6));
 
     private final Set<BlockPos> s = new HashSet<>();
 
     public FuckerFeature() {
-        super("Fucker", "Automatically breaks selected type of blocks around you.", FeatureCategory.of("World"));
+        super("Fucker", "破坏器", "自动破坏周围选定类型的方块。", FeatureCategory.of("World"));
     }
 
     @Override

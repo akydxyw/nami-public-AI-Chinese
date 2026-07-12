@@ -9,6 +9,6 @@ import namidevelopment.kiriyaga.api.annotation.RegisterFeature;
 public class NoPacketKick extends Feature {
 
     public NoPacketKick() {
-        super("NoPacketKick", "Prevents from kicking because of netty exceptions.", FeatureCategory.of("Miscellaneous"), "npacketkick", "antipacketkick");
+        super("NoPacketKick", "防数据包踢出", "防止因 netty 异常而被踢出。", FeatureCategory.of("Miscellaneous"), "npacketkick", "antipacketkick");
     }
 }

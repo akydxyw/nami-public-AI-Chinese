@@ -8,6 +8,6 @@ import namidevelopment.kiriyaga.api.annotation.RegisterFeature;
 public class NameProtectFeature extends Feature {
 
     public NameProtectFeature() {
-        super("NameProtect", "Changes client name on all client side accessible sides.", FeatureCategory.of("Miscellaneous"), "nameprotect");
+        super("NameProtect", "名称保护", "在客户端可访问的所有位置更改客户端名称。", FeatureCategory.of("Miscellaneous"), "nameprotect");
     }
 }

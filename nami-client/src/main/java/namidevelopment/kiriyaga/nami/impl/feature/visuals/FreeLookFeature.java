@@ -15,11 +15,11 @@ public class FreeLookFeature extends Feature { // todo this shit broke
 
     private CameraType previousPerspective;
 
-    public DoubleSetting sensivity = addSetting(new DoubleSetting("Sensivity", 5, 2, 15));
+    public DoubleSetting sensivity = addSetting(new DoubleSetting("Sensivity", "灵敏度", 5, 2, 15));
 
 
     public FreeLookFeature() {
-        super("FreeLook", "Look around freely without moving your real yaw/pitch.", FeatureCategory.of("Render"), "freelook", "freelok", "third");
+        super("FreeLook", "自由视角", "自由环视而不改变真实偏航角/俯仰角。", FeatureCategory.of("Render"), "freelook", "freelok", "third");
     }
 
     @Override

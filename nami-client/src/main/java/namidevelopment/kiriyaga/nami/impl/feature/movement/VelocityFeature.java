@@ -36,23 +36,23 @@ public class VelocityFeature extends Feature {
 
     private enum Mode { VANILLA, WALLS, GRIM }
 
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.WALLS));
-    public final DoubleSetting horizontalPercent = addSetting(new DoubleSetting("Horizontal", 0.00, 0.00, 100.00));
-    public final DoubleSetting verticalPercent = addSetting(new DoubleSetting("Vertical", 0.00, 0.00, 100.00));
-    public final BoolSetting concealMotion = addSetting(new BoolSetting("Conceal", false));
-    public final BoolSetting cancel = addSetting(new BoolSetting("Cancel", false));
-    public final BoolSetting onlyOnGround = addSetting(new BoolSetting("OnlyOnGround", false));
-    public final BoolSetting entityPush = addSetting(new BoolSetting("Entity", true));
-    public final BoolSetting blockPush = addSetting(new BoolSetting("Block", true));
-    public final BoolSetting liquidPush = addSetting(new BoolSetting("Liquid", true));
-    public final BoolSetting fishingRod = addSetting(new BoolSetting("FishingRod", false));
-    public final BoolSetting onlyPhased = addSetting(new BoolSetting("OnlyPhased", false));
-    public final BoolSetting onlyWhenHeadCovered = addSetting(new BoolSetting("OnlyCoveredHead", false));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.WALLS));
+    public final DoubleSetting horizontalPercent = addSetting(new DoubleSetting("Horizontal", "水平", 0.00, 0.00, 100.00));
+    public final DoubleSetting verticalPercent = addSetting(new DoubleSetting("Vertical", "垂直", 0.00, 0.00, 100.00));
+    public final BoolSetting concealMotion = addSetting(new BoolSetting("Conceal", "隐藏", false));
+    public final BoolSetting cancel = addSetting(new BoolSetting("Cancel", "取消", false));
+    public final BoolSetting onlyOnGround = addSetting(new BoolSetting("OnlyOnGround", "仅在地面", false));
+    public final BoolSetting entityPush = addSetting(new BoolSetting("Entity", "实体", true));
+    public final BoolSetting blockPush = addSetting(new BoolSetting("Block", "方块", true));
+    public final BoolSetting liquidPush = addSetting(new BoolSetting("Liquid", "液体", true));
+    public final BoolSetting fishingRod = addSetting(new BoolSetting("FishingRod", "钓鱼竿", false));
+    public final BoolSetting onlyPhased = addSetting(new BoolSetting("OnlyPhased", "仅穿透", false));
+    public final BoolSetting onlyWhenHeadCovered = addSetting(new BoolSetting("OnlyCoveredHead", "仅头部覆盖", false));
 
     private boolean pendingConcealment = false;
     private boolean pendingVelocity = false;
 
-    public VelocityFeature() {super("Velocity", "Reduces incoming velocity effects.", FeatureCategory.of("Movement"), "antiknockback");
+    public VelocityFeature() {super("Velocity", "速度", "减少受到的速度效果。", FeatureCategory.of("Movement"), "antiknockback");
         horizontalPercent.setShowCondition(()-> !cancel.get());
         verticalPercent.setShowCondition(()-> !cancel.get());
         onlyPhased.setShowCondition(()-> mode.get() == Mode.GRIM);

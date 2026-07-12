@@ -34,14 +34,14 @@ public class AutoArmorFeature extends Feature {
     public enum BootsPriority { LEATHER, GOLDEN, BEST }
     public enum HelmetPriority { BEST, TURTLE, GOLDEN, PUMPKIN, NONE }
 
-    public final IntSetting delay = addSetting(new IntSetting("Delay", 150, 0, 1000));
-    public final EnumSetting<ProtectionPriority> protectionPriority = addSetting(new EnumSetting<>("Protection", ProtectionPriority.PROT));
-    public final IntSetting damageThreshold = addSetting(new IntSetting("Durability", 3, 1, 15));
-    public final EnumSetting<HelmetPriority> helmetSetting = addSetting(new EnumSetting<>("Helmet", HelmetPriority.BEST));
-    public final BoolSetting helmetSafety = addSetting(new BoolSetting("Safety", false));
-    public final EnumSetting<BootsPriority> bootsPriority = addSetting(new EnumSetting<>("Boots", BootsPriority.BEST));
-    public final BoolSetting elytraPriority = addSetting(new BoolSetting("ElytraPriority", false));
-    public final BoolSetting mendingRepair = addSetting(new BoolSetting("MendingRepair", false));
+    public final IntSetting delay = addSetting(new IntSetting("Delay", "延迟", 150, 0, 1000));
+    public final EnumSetting<ProtectionPriority> protectionPriority = addSetting(new EnumSetting<>("Protection", "保护", ProtectionPriority.PROT));
+    public final IntSetting damageThreshold = addSetting(new IntSetting("Durability", "耐久", 3, 1, 15));
+    public final EnumSetting<HelmetPriority> helmetSetting = addSetting(new EnumSetting<>("Helmet", "头盔", HelmetPriority.BEST));
+    public final BoolSetting helmetSafety = addSetting(new BoolSetting("Safety", "安全", false));
+    public final EnumSetting<BootsPriority> bootsPriority = addSetting(new EnumSetting<>("Boots", "靴子", BootsPriority.BEST));
+    public final BoolSetting elytraPriority = addSetting(new BoolSetting("ElytraPriority", "鞘翅优先", false));
+    public final BoolSetting mendingRepair = addSetting(new BoolSetting("MendingRepair", "经验修补", false));
 
     public static final Set<Item> ARMOR_ITEMS_HEAD = Set.of(Items.LEATHER_HELMET, Items.GOLDEN_HELMET, Items.CHAINMAIL_HELMET, Items.IRON_HELMET, Items.DIAMOND_HELMET, Items.NETHERITE_HELMET, Items.TURTLE_HELMET, Items.CARVED_PUMPKIN);
     public static final Set<Item> ARMOR_ITEMS_CHEST = Set.of(Items.LEATHER_CHESTPLATE, Items.GOLDEN_CHESTPLATE, Items.CHAINMAIL_CHESTPLATE, Items.IRON_CHESTPLATE, Items.DIAMOND_CHESTPLATE, Items.NETHERITE_CHESTPLATE, Items.ELYTRA);
@@ -51,7 +51,7 @@ public class AutoArmorFeature extends Feature {
     private final Timer timer = new Timer();
 
     public AutoArmorFeature() {
-        super("AutoArmor", "Automatically equips best armor.", FeatureCategory.of("Combat"), "autoarmor");
+        super("AutoArmor", "自动护甲", "自动装备最佳护甲。", FeatureCategory.of("Combat"), "autoarmor");
         helmetSafety.setShowCondition(() -> helmetSetting.get() == HelmetPriority.NONE);
     }
 

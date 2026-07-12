@@ -20,11 +20,11 @@ public class TimeFeature extends HudElementFeature {
         GAME
     }
 
-    public final EnumSetting<TimeMode> mode = addSetting(new EnumSetting<>("Mode", TimeMode.REAL));
-    public final BoolSetting grey = addSetting(new BoolSetting("Grey", true));
+    public final EnumSetting<TimeMode> mode = addSetting(new EnumSetting<>("Mode", "模式", TimeMode.REAL));
+    public final BoolSetting grey = addSetting(new BoolSetting("Grey", "灰色", true));
 
     public TimeFeature() {
-        super("Time", "Displays real or game time.", 0, 0, 50, 9);
+        super("时间", "显示现实或游戏时间。", 0, 0, 50, 9);
     }
 
     @Override

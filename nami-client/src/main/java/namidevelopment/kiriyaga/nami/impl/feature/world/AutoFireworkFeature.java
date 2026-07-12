@@ -21,18 +21,18 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class AutoFireworkFeature extends Feature {
 
-    public final BoolSetting deployLaunch = addSetting(new BoolSetting("DeployLaunch", false));
-    public final BoolSetting autoDeploy = addSetting(new BoolSetting("AutoDeploy", false));
-    public final BoolSetting autoLaunch = addSetting(new BoolSetting("AutoLaunch", false));
-    public final DoubleSetting delaySeconds = addSetting(new DoubleSetting("Delay", 4.5, 0.1, 25.0));
-    public final IntSetting onLevel = addSetting(new IntSetting("OnLevel", -64, -64, 360));
+    public final BoolSetting deployLaunch = addSetting(new BoolSetting("DeployLaunch", "部署发射", false));
+    public final BoolSetting autoDeploy = addSetting(new BoolSetting("AutoDeploy", "自动部署", false));
+    public final BoolSetting autoLaunch = addSetting(new BoolSetting("AutoLaunch", "自动发射", false));
+    public final DoubleSetting delaySeconds = addSetting(new DoubleSetting("Delay", "延迟", 4.5, 0.1, 25.0));
+    public final IntSetting onLevel = addSetting(new IntSetting("OnLevel", "在Y坐标", -64, -64, 360));
 
     private int tickDelay;
     private int lastUseTick = 0;
     private boolean b;
 
     public AutoFireworkFeature() {
-        super("AutoFirework", "Automatically fires fireworks.", FeatureCategory.of("World"), "autofirework");
+        super("AutoFirework", "自动烟花", "自动发射烟花。", FeatureCategory.of("World"), "autofirework");
         delaySeconds.setShowCondition(autoLaunch::get);
         onLevel.setShowCondition(autoLaunch::get);
     }

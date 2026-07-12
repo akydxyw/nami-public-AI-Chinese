@@ -54,22 +54,22 @@ public class AuraFeature extends Feature {
     public enum Sprint { NONE, MOTION, PACKET }
     public enum Swap { NONE, REQUIRE, NORMAL, SILENT }
 
-    public final DoubleSetting attackRange = addSetting(new DoubleSetting("Range", 3.00, 1.0, 6.0));
-    public final BoolSetting stanceAbuse = addSetting(new BoolSetting("StanceAbuse", false));
-    public final DoubleSetting delay = addSetting(new DoubleSetting("Delay", 0.92, 0.00, 1.00));
-    public final EnumSetting<Swap> swap = addSetting(new EnumSetting<>("Swap", Swap.REQUIRE));
-    public final EnumSetting<TpsMode> tpsMode = addSetting(new EnumSetting<>("TPS", TpsMode.AVERAGE));
-    public final BoolSetting multiTask = addSetting(new BoolSetting("Multitask", true));
-    public final EnumSetting<Sprint> stopSprinting = addSetting(new EnumSetting<>("Sprinting", Sprint.NONE));
-    public final EnumSetting<Rotate> rotate = addSetting(new EnumSetting<>("Rotate", Rotate.NORMAL));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting render = addSetting(new BoolSetting("Render", true));
+    public final DoubleSetting attackRange = addSetting(new DoubleSetting("Range", "范围", 3.00, 1.0, 6.0));
+    public final BoolSetting stanceAbuse = addSetting(new BoolSetting("StanceAbuse", "姿态滥用", false));
+    public final DoubleSetting delay = addSetting(new DoubleSetting("Delay", "延迟", 0.92, 0.00, 1.00));
+    public final EnumSetting<Swap> swap = addSetting(new EnumSetting<>("Swap", "切换", Swap.REQUIRE));
+    public final EnumSetting<TpsMode> tpsMode = addSetting(new EnumSetting<>("TPS", "TPS", TpsMode.AVERAGE));
+    public final BoolSetting multiTask = addSetting(new BoolSetting("Multitask", "多任务", true));
+    public final EnumSetting<Sprint> stopSprinting = addSetting(new EnumSetting<>("Sprinting", "冲刺", Sprint.NONE));
+    public final EnumSetting<Rotate> rotate = addSetting(new EnumSetting<>("Rotate", "旋转", Rotate.NORMAL));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥动", true));
+    public final BoolSetting render = addSetting(new BoolSetting("Render", "渲染", true));
 
     private Entity currentTarget = null;
     private float attackCooldownTicks = 0f;
 
     public AuraFeature() {
-        super("Aura", "Attacks certain targets automatically.", FeatureCategory.of("Combat"), "killaura", "ara", "killara");
+        super("Aura", "光环", "自动攻击特定目标。", FeatureCategory.of("Combat"), "killaura", "ara", "killara");
     }
 
     @Override

@@ -34,15 +34,15 @@ import static namidevelopment.kiriyaga.nami.Nami.*;
 //@RegisterFeature
 public class FunFeature extends Feature {
 
-    public final BoolSetting interactDebug = addSetting(new BoolSetting("ShowInteract", false));
-    public final IntSetting ticks = addSetting(new IntSetting("PredictTicksTicks", 3, 1, 20));
-    public final BoolSetting predictSelf = addSetting(new BoolSetting("PredictSelfSelf", false));
-    public final BoolSetting predictOthers = addSetting(new BoolSetting("PredictOthers", false));
-    public final BoolSetting showBox = addSetting(new BoolSetting("PredictShowBox", false));
-    public final BoolSetting showEye = addSetting(new BoolSetting("PredictShowEye", false));
+    public final BoolSetting interactDebug = addSetting(new BoolSetting("ShowInteract", "显示交互", false));
+    public final IntSetting ticks = addSetting(new IntSetting("PredictTicksTicks", "预测刻数", 3, 1, 20));
+    public final BoolSetting predictSelf = addSetting(new BoolSetting("PredictSelfSelf", "预测自己", false));
+    public final BoolSetting predictOthers = addSetting(new BoolSetting("PredictOthers", "预测他人", false));
+    public final BoolSetting showBox = addSetting(new BoolSetting("PredictShowBox", "预测显示盒子", false));
+    public final BoolSetting showEye = addSetting(new BoolSetting("PredictShowEye", "预测显示眼睛", false));
 
     public FunFeature() {
-        super("Fun", ".", FeatureCategory.of("Client"));
+        super("Fun", "趣味", ".", FeatureCategory.of("Client"));
     }
 
     private final Map<AABB, Integer> interactTargets = new ConcurrentHashMap<>();

@@ -21,11 +21,11 @@ public class ArmorHudFeature extends HudElementFeature {
         HORIZONTAL, VERTICAL
     }
 
-    public final EnumSetting<Orientation> orientation = addSetting(new EnumSetting<>("Orientation", Orientation.HORIZONTAL));
-    public final BoolSetting showDurability = addSetting(new BoolSetting("ShowDurability", true));
+    public final EnumSetting<Orientation> orientation = addSetting(new EnumSetting<>("Orientation", "方向", Orientation.HORIZONTAL));
+    public final BoolSetting showDurability = addSetting(new BoolSetting("ShowDurability", "显示耐久", true));
 
     public ArmorHudFeature() {
-        super("ArmorHud", "Displays equipped armor.", 0, 0, 64, 16);
+        super("护甲", "显示已装备的护甲。", 0, 0, 64, 16);
         this.label.setShow(true);
     }
 

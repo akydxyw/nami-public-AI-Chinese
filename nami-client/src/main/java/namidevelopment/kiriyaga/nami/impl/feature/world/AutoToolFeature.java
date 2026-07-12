@@ -23,11 +23,11 @@ public class AutoToolFeature extends Feature {
 
     public enum EchestPriority {FORTUNE, SILK}
 
-    public final EnumSetting<EchestPriority> echestPriority = addSetting(new EnumSetting<>("Echest", EchestPriority.SILK));
-    public final IntSetting damageThreshold = addSetting(new IntSetting("Durability", 3, 0, 15));
+    public final EnumSetting<EchestPriority> echestPriority = addSetting(new EnumSetting<>("Echest", "末影箱", EchestPriority.SILK));
+    public final IntSetting damageThreshold = addSetting(new IntSetting("Durability", "耐久", 3, 0, 15));
 
     public AutoToolFeature() {
-        super("AutoTool", "Auto selects the currently best mining tool from your hotbar.", FeatureCategory.of("World"), "autotool");
+        super("AutoTool", "自动工具", "自动从物品栏选择当前最佳的挖掘工具。", FeatureCategory.of("World"), "autotool");
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)

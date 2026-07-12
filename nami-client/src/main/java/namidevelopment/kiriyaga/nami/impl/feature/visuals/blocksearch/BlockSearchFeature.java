@@ -33,10 +33,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class BlockSearchFeature extends Feature {
 
-    private final WhitelistSetting blockList = addSetting(new WhitelistSetting("Whitelist", true, WhitelistSetting.Type.BLOCK));
-    public final BoolSetting fill = addSetting(new BoolSetting("Fill", true));
-    public final BoolSetting tracers = addSetting(new BoolSetting("Tracers", false));
-    public final BoolSetting notAtSpawn = addSetting(new BoolSetting("NotAtSpawn", false));
+    private final WhitelistSetting blockList = addSetting(new WhitelistSetting("Whitelist", "白名单", true, WhitelistSetting.Type.BLOCK));
+    public final BoolSetting fill = addSetting(new BoolSetting("Fill", "填充", true));
+    public final BoolSetting tracers = addSetting(new BoolSetting("Tracers", "追踪线", false));
+    public final BoolSetting notAtSpawn = addSetting(new BoolSetting("NotAtSpawn", "非出生点", false));
 
     private Set<Identifier> candidateIds = new HashSet<>();
     private final BlockingQueue<ChunkSnapshot> snapshotQueue = new LinkedBlockingQueue<>();
@@ -45,7 +45,7 @@ public class BlockSearchFeature extends Feature {
     private BlockSearch worker;
 
     public BlockSearchFeature() {
-        super("BlockSearch", "Search for specified blocks.", FeatureCategory.of("Render"));
+        super("BlockSearch", "方块搜索", "搜索指定方块。", FeatureCategory.of("Render"));
 
         blockList.setOnChanged(this::updateCandidateBlocks);
         notAtSpawn.setOnChanged(this::reloadChunks);

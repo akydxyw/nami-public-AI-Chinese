@@ -10,10 +10,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class WeatherFeature extends HudElementFeature {
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
 
     public WeatherFeature() {
-        super("Weather", "Displays current weather.", 0, 0, 50, 9);
+        super("天气", "显示当前天气。", 0, 0, 50, 9);
     }
 
     @Override
@@ -24,17 +24,17 @@ public class WeatherFeature extends HudElementFeature {
 
         if (MC.level.isRaining()) {
             if (MC.level.isThundering()) {
-                weather = "thunder";
+                weather = "雷暴";
             } else {
-                weather = "rain";
+                weather = "雨";
             }
         } else {
-            weather = "clear";
+            weather = "晴朗";
         }
 
         String text;
         if (displayLabel.get()) {
-            text = "{global}Weather: {white}" + weather;
+            text = "{global}天气: {white}" + weather;
         } else {
             text = "{white}" + weather;
         }

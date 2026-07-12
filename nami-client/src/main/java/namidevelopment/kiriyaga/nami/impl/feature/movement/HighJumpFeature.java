@@ -8,9 +8,9 @@ import namidevelopment.kiriyaga.api.model.setting.DoubleSetting;
 @RegisterFeature
 public class HighJumpFeature extends Feature {
 
-    public final DoubleSetting height = addSetting(new DoubleSetting("Height", 0.42, 0.00, 1.0));
+    public final DoubleSetting height = addSetting(new DoubleSetting("Height", "高度", 0.42, 0.00, 1.0));
 
     public HighJumpFeature() {
-        super("HighJump", "Modifies jump strength.", FeatureCategory.of("Movement"), "highjump");
+        super("HighJump", "高跳", "修改跳跃高度。", FeatureCategory.of("Movement"), "highjump");
     }
 }

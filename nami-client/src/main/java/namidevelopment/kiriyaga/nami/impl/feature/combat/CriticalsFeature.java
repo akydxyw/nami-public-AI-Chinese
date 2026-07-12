@@ -40,13 +40,13 @@ public class CriticalsFeature extends Feature {
 
     public enum Mode { PACKET, GRIM, GRIMNEW}
 
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.PACKET));
-    public final BoolSetting onlyPhased = addSetting(new BoolSetting("OnlyPhased", true));
-    public final BoolSetting onlyStandingStill = addSetting(new BoolSetting("OnlyStandingStill", true));
-    public final BoolSetting onlyWhenHeadCovered = addSetting(new BoolSetting("HeadCovered", true));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.PACKET));
+    public final BoolSetting onlyPhased = addSetting(new BoolSetting("OnlyPhased", "仅卡墙", true));
+    public final BoolSetting onlyStandingStill = addSetting(new BoolSetting("OnlyStandingStill", "仅静止", true));
+    public final BoolSetting onlyWhenHeadCovered = addSetting(new BoolSetting("HeadCovered", "头部覆盖", true));
 
     public CriticalsFeature() {
-        super("Criticals", "Changes player movement for always critting.", FeatureCategory.of("Combat"));
+        super("Criticals", "暴击", "改变玩家移动以始终暴击。", FeatureCategory.of("Combat"));
         onlyPhased.setShowCondition(() -> mode.get() != Mode.PACKET);
         onlyStandingStill.setShowCondition(() -> mode.get() != Mode.PACKET);
         onlyWhenHeadCovered.setShowCondition(() -> mode.get() != Mode.PACKET);

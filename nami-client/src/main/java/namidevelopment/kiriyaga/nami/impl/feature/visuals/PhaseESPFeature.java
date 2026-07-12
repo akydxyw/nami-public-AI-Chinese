@@ -22,15 +22,15 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class PhaseESPFeature extends Feature {
 
-    public final BoolSetting bedrock = addSetting(new BoolSetting("Bedrock", true));
-    public final BoolSetting obsidian = addSetting(new BoolSetting("Obsidian", false));
-    public final BoolSetting safeOnly = addSetting(new BoolSetting("SafeOnly", true));
+    public final BoolSetting bedrock = addSetting(new BoolSetting("Bedrock", "基岩", true));
+    public final BoolSetting obsidian = addSetting(new BoolSetting("Obsidian", "黑曜石", false));
+    public final BoolSetting safeOnly = addSetting(new BoolSetting("SafeOnly", "仅安全", true));
 
     private static final Color BEDROCK_COLOR = new Color(0, 110, 0, 255);
     private static final Color OBSIDIAN_COLOR = new Color(154, 91, 38, 255);
 
     public PhaseESPFeature() {
-        super("PhaseESP", "Highlights blast blocks you can phase in.", FeatureCategory.of("Render"), "phaseesp");
+        super("PhaseESP", "穿墙透视", "高亮可以穿墙进入的抗爆方块。", FeatureCategory.of("Render"), "phaseesp");
     safeOnly.setShowCondition(()-> bedrock.get() || obsidian.get());
     }
 

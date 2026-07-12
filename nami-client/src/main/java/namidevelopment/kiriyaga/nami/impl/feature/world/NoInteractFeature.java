@@ -29,13 +29,13 @@ import static namidevelopment.kiriyaga.api.util.BlockUtils.isBed;
 @RegisterFeature
 public class NoInteractFeature extends Feature {
 
-    public final WhitelistSetting whitelist = addSetting(new WhitelistSetting("WhiteList", false, WhitelistSetting.Type.BLOCK));
-    public final BoolSetting spawnPoint = addSetting(new BoolSetting("SpawnPoint", true));
-    public final BoolSetting strip = addSetting(new BoolSetting("Strip", false));
-    public final BoolSetting packet = addSetting(new BoolSetting("Packet", false));
+    public final WhitelistSetting whitelist = addSetting(new WhitelistSetting("WhiteList", "白名单", false, WhitelistSetting.Type.BLOCK));
+    public final BoolSetting spawnPoint = addSetting(new BoolSetting("SpawnPoint", "出生点", true));
+    public final BoolSetting strip = addSetting(new BoolSetting("Strip", "去皮", false));
+    public final BoolSetting packet = addSetting(new BoolSetting("Packet", "数据包", false));
 
     public NoInteractFeature() {
-        super("NoInteract", "Prevents you from interacting with certain blocks.", FeatureCategory.of("World"), "antiinteract");
+        super("NoInteract", "无交互", "阻止你与某些方块交互。", FeatureCategory.of("World"), "antiinteract");
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)

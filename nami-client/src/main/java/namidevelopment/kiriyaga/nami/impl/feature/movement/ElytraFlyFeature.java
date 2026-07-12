@@ -34,33 +34,33 @@ public class ElytraFlyFeature extends Feature {
         BOUNCE, ROTATION, GLIDE
     }
 
-    public final EnumSetting<FlyMode> mode = addSetting(new EnumSetting<>("Mode", FlyMode.BOUNCE));
+    public final EnumSetting<FlyMode> mode = addSetting(new EnumSetting<>("Mode", "模式", FlyMode.BOUNCE));
 
     // GLIDE
-    public final IntSetting targetY = addSetting(new IntSetting("TargetY", 180, 60, 600));
-    public final IntSetting vLow = addSetting(new IntSetting("MinSpeed", 14, 6, 40));
-    public final IntSetting vHigh = addSetting(new IntSetting("MaxSpeed", 27, 10, 60));
-    public final IntSetting climbPitch = addSetting(new IntSetting("ClimbPitch", 40, 0, 60));
-    public final IntSetting divePitch = addSetting(new IntSetting("DivePitch", 38, 20, 60));
-    public final IntSetting cruiseMin = addSetting(new IntSetting("CruiseMin", 4, 0, 20));
-    public final IntSetting cruiseMax = addSetting(new IntSetting("CruiseMax", 12, 2, 25));
-    public final BoolSetting allowRockets = addSetting(new BoolSetting("AllowRockets", true));
+    public final IntSetting targetY = addSetting(new IntSetting("TargetY", "目标Y", 180, 60, 600));
+    public final IntSetting vLow = addSetting(new IntSetting("MinSpeed", "最小速度", 14, 6, 40));
+    public final IntSetting vHigh = addSetting(new IntSetting("MaxSpeed", "最大速度", 27, 10, 60));
+    public final IntSetting climbPitch = addSetting(new IntSetting("ClimbPitch", "爬升俯仰", 40, 0, 60));
+    public final IntSetting divePitch = addSetting(new IntSetting("DivePitch", "俯冲俯仰", 38, 20, 60));
+    public final IntSetting cruiseMin = addSetting(new IntSetting("CruiseMin", "巡航最小", 4, 0, 20));
+    public final IntSetting cruiseMax = addSetting(new IntSetting("CruiseMax", "巡航最大", 12, 2, 25));
+    public final BoolSetting allowRockets = addSetting(new BoolSetting("AllowRockets", "允许烟花", true));
     @SuppressWarnings("FieldCanBeLocal")
-    public final IntSetting rocketSpeed = addSetting(new IntSetting("RocketBelow", 9, 0, 30));
-    public final BoolSetting setbackStop = addSetting(new BoolSetting("SetbackStop", true));
+    public final IntSetting rocketSpeed = addSetting(new IntSetting("RocketBelow", "烟花阈值", 9, 0, 30));
+    public final BoolSetting setbackStop = addSetting(new BoolSetting("SetbackStop", "击退停止", true));
 
     //
     // CONTROL
     //public final BoolSetting midAirFreeze = addSetting(new BoolSetting("mid air freeze", false));
-    public final BoolSetting lockPitch = addSetting(new BoolSetting("LockPitch", true));
-    public final BoolSetting hover = addSetting(new BoolSetting("Hover", true));
-    public final IntSetting hoverSpeed = addSetting(new IntSetting("HoverSpeed", 10, 2, 20)); // тики 2-20
+    public final BoolSetting lockPitch = addSetting(new BoolSetting("LockPitch", "锁定俯仰", true));
+    public final BoolSetting hover = addSetting(new BoolSetting("Hover", "悬停", true));
+    public final IntSetting hoverSpeed = addSetting(new IntSetting("HoverSpeed", "悬停速度", 10, 2, 20)); // тики 2-20
 
     // BOOST
     //public final BoolSetting boost = addSetting(new BoolSetting("Boost", false));
     //public final BoolSetting newBoost = addSetting(new BoolSetting("NewBoost", false));
-    public final BoolSetting pitch = addSetting(new BoolSetting("Pitch", true));
-    public final IntSetting pitchDegree = addSetting(new IntSetting("Pitch", 75, 0, 90));
+    public final BoolSetting pitch = addSetting(new BoolSetting("Pitch", "俯仰", true));
+    public final IntSetting pitchDegree = addSetting(new IntSetting("Pitch", "俯仰", 75, 0, 90));
 
     private enum GlideState { DIVE, CRUISE, CLIMB }
     private GlideState glideState = GlideState.CRUISE;
@@ -79,7 +79,7 @@ public class ElytraFlyFeature extends Feature {
     private boolean hoverB = true;
 
     public ElytraFlyFeature() {
-        super("ElytraFly", "Improves elytra flying.", FeatureCategory.of("Movement"), "elytrafly");
+        super("ElytraFly", "鞘翅飞行", "改进鞘翅飞行。", FeatureCategory.of("Movement"), "elytrafly");
         //boost.setShowCondition(() -> mode.get() == FlyMode.BOUNCE);
         //newBoost.setShowCondition(() -> mode.get() == FlyMode.BOUNCE);
         pitch.setShowCondition(() -> mode.get() == FlyMode.BOUNCE);

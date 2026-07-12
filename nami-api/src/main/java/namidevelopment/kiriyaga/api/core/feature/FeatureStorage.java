@@ -17,6 +17,8 @@ public class FeatureStorage {
         Features.add(Feature);
         FeaturesByName.put(Feature.getName(), Feature);
         FeaturesByName.put(Feature.getName().replace(" ", ""), Feature);
+        FeaturesByName.put(Feature.getIdentifier(), Feature);
+        FeaturesByName.put(Feature.getIdentifier().replace(" ", ""), Feature);
         FeaturesByClass.put(Feature.getClass(), Feature);
     }
 
@@ -24,6 +26,8 @@ public class FeatureStorage {
         Features.remove(Feature);
         FeaturesByName.remove(Feature.getName());
         FeaturesByName.remove(Feature.getName().replace(" ", ""));
+        FeaturesByName.remove(Feature.getIdentifier());
+        FeaturesByName.remove(Feature.getIdentifier().replace(" ", ""));
         FeaturesByClass.remove(Feature.getClass());
         Feature.setEnabled(false);
     }

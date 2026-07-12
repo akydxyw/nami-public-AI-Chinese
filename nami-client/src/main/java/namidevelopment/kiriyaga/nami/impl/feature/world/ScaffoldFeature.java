@@ -39,25 +39,25 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class ScaffoldFeature extends Feature {
 
-    public final DoubleSetting range = addSetting(new DoubleSetting("Range", 4.50, 1.0, 6.0));
-    public final IntSetting delay = addSetting(new IntSetting("Delay", 0, 0, 5));
-    public final IntSetting shiftTicks = addSetting(new IntSetting("ShiftTicks", 1, 1, 8));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
-    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", true));
-    public final BoolSetting swapSilent = addSetting(new BoolSetting("SwapSilent", true));
-    public final BoolSetting multiTask = addSetting(new BoolSetting("MultiTask", false));
-    public final BoolSetting simulate = addSetting(new BoolSetting("Simulate", true));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final WhitelistSetting whitelist = addSetting(new WhitelistSetting("WhiteList", false, WhitelistSetting.Type.BLOCK));
-    public final BoolSetting singleBlock = addSetting(new BoolSetting("SingleBlock", true));
-    public final BoolSetting render = addSetting(new BoolSetting("Render", false));
+    public final DoubleSetting range = addSetting(new DoubleSetting("Range", "范围", 4.50, 1.0, 6.0));
+    public final IntSetting delay = addSetting(new IntSetting("Delay", "延迟", 0, 0, 5));
+    public final IntSetting shiftTicks = addSetting(new IntSetting("ShiftTicks", "Shift刻数", 1, 1, 8));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
+    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", "严格方向", true));
+    public final BoolSetting swapSilent = addSetting(new BoolSetting("SwapSilent", "静默切换", true));
+    public final BoolSetting multiTask = addSetting(new BoolSetting("MultiTask", "多任务", false));
+    public final BoolSetting simulate = addSetting(new BoolSetting("Simulate", "模拟", true));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final WhitelistSetting whitelist = addSetting(new WhitelistSetting("WhiteList", "白名单", false, WhitelistSetting.Type.BLOCK));
+    public final BoolSetting singleBlock = addSetting(new BoolSetting("SingleBlock", "单方块", true));
+    public final BoolSetting render = addSetting(new BoolSetting("Render", "渲染", false));
 
     private final SafeWalkComponent safeWalk = new SafeWalkComponent();
     private int cooldown = 0;
     private BlockPos renderPos = null;
 
     public ScaffoldFeature() {
-        super("Scaffold", "Automatically scaffolds using specified blocks.", FeatureCategory.of("World"));
+        super("Scaffold", "搭桥", "使用指定方块自动搭桥。", FeatureCategory.of("World"));
         safeWalk.register(this);
     }
 

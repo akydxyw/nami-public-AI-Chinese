@@ -31,16 +31,16 @@ public class NoSlowFeature extends Feature {
 
     public enum InvMove {NONE, WAIT, STOP}
 
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.VANILLA));
-    public final BoolSetting items = addSetting(new BoolSetting("Items", true));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.VANILLA));
+    public final BoolSetting items = addSetting(new BoolSetting("Items", "物品", true));
     //public final EnumSetting<InvMove> invMove = addSetting(new EnumSetting<>("MultiAction", InvMove.NONE));
-    public final BoolSetting fastCrawl = addSetting(new BoolSetting("FastCrawl", false));
+    public final BoolSetting fastCrawl = addSetting(new BoolSetting("FastCrawl", "快速爬行", false));
     //public final BoolSetting fastWeb = addSetting(new BoolSetting("fast web", false));
-    public final BoolSetting onlyOnGround = addSetting(new BoolSetting("OnlyOnGround", true));
+    public final BoolSetting onlyOnGround = addSetting(new BoolSetting("OnlyOnGround", "仅在地面", true));
 
 
     public NoSlowFeature() {
-        super("NoSlow", "Reduces slowdown effect caused on player.", FeatureCategory.of("Movement"), "noslow");
+        super("NoSlow", "无减速", "减少玩家受到的减速效果。", FeatureCategory.of("Movement"), "noslow");
         items.setShowCondition(()-> mode.get() != Mode.NONE);
         onlyOnGround.setShowCondition(()-> mode.get() != Mode.NONE);
     }

@@ -32,9 +32,9 @@ public class KeyBindSettingPanel extends BasePanel {
         int textY = y + 2;
         int textX = x + PADDING + (hovered ? 1 : 0);
 
-        String nameStr = hovered ? (setting.isHoldMode() ? "Hold" : "Toggle") : setting.getName();
+        String nameStr = hovered ? (setting.isHoldMode() ? "按住" : "切换") : setting.getName();
         FONT_SERVICE.drawText(context, nameStr, textX, textY, toRGBA(getTextColor()), true);
-        String valueStr = waitingForKeyBind == setting ? "Listening..." : KeyUtils.getKeyName(setting.get());
+        String valueStr = waitingForKeyBind == setting ? "监听中..." : KeyUtils.getKeyName(setting.get());
 
         int valueX = x + width - PADDING - FONT_SERVICE.getWidth(valueStr);
         FONT_SERVICE.drawText(context, valueStr, valueX, textY, toRGBA(getTextColor()), true);

@@ -9,6 +9,19 @@ public class FeatureCategory {
             "Combat", "Exploits", "Miscellaneous", "Movement", "Render", "World", "HUD", "Client", "Other"
     );
 
+    private static final Map<String, String> DISPLAY_NAMES = new HashMap<>();
+    static {
+        DISPLAY_NAMES.put("Combat", "战斗");
+        DISPLAY_NAMES.put("Exploits", "漏洞");
+        DISPLAY_NAMES.put("Miscellaneous", "杂项");
+        DISPLAY_NAMES.put("Movement", "移动");
+        DISPLAY_NAMES.put("Render", "视觉");
+        DISPLAY_NAMES.put("World", "世界");
+        DISPLAY_NAMES.put("HUD", "HUD");
+        DISPLAY_NAMES.put("Client", "客户端");
+        DISPLAY_NAMES.put("Other", "其他");
+    }
+
     private final String name;
 
     private FeatureCategory(String name) {
@@ -52,6 +65,10 @@ public class FeatureCategory {
 
     public String getName() {
         return name;
+    }
+
+    public String getDisplayName() {
+        return DISPLAY_NAMES.getOrDefault(name, name);
     }
 
     @Override

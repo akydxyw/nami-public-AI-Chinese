@@ -20,13 +20,13 @@ public class CoordinatesFeature extends HudElementFeature {
         HORIZONTAL, VERTICAL
     }
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
-    public final BoolSetting altCords = addSetting(new BoolSetting("AltCoordinates", true));
-    public final BoolSetting precise = addSetting(new BoolSetting("Precise", false));
-    public final EnumSetting<LayoutMode> layout = addSetting(new EnumSetting<>("Layout", LayoutMode.HORIZONTAL));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
+    public final BoolSetting altCords = addSetting(new BoolSetting("AltCoordinates", "对应坐标", true));
+    public final BoolSetting precise = addSetting(new BoolSetting("Precise", "精确", false));
+    public final EnumSetting<LayoutMode> layout = addSetting(new EnumSetting<>("Layout", "布局", LayoutMode.HORIZONTAL));
 
     public CoordinatesFeature() {
-        super("Coordinates", "Displays player coordinates.", 0, 0, 100, 30);
+        super("坐标", "显示玩家坐标。", 0, 0, 100, 30);
     }
 
     @Override

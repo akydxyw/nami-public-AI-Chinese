@@ -21,18 +21,18 @@ import static namidevelopment.kiriyaga.api.util.InteractionUtils.interactWithEnt
 @RegisterFeature
 public class AutoNametagFeature extends Feature {
 
-    public final BoolSetting nametagged = addSetting(new BoolSetting("Nametagged", false));
-    public final DoubleSetting range = addSetting(new DoubleSetting("Range", 3.0, 1.0, 10.0));
-    public final IntSetting delay = addSetting(new IntSetting("Delay", 1, 0, 20));
-    public final BoolSetting swapSilent = addSetting(new BoolSetting("SwapSilent", true));
-    public final BoolSetting multitask = addSetting(new BoolSetting("Multitask", false));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
+    public final BoolSetting nametagged = addSetting(new BoolSetting("Nametagged", "已命名", false));
+    public final DoubleSetting range = addSetting(new DoubleSetting("Range", "范围", 3.0, 1.0, 10.0));
+    public final IntSetting delay = addSetting(new IntSetting("Delay", "延迟", 1, 0, 20));
+    public final BoolSetting swapSilent = addSetting(new BoolSetting("SwapSilent", "静默切换", true));
+    public final BoolSetting multitask = addSetting(new BoolSetting("Multitask", "多任务", false));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
 
     private int cooldown = 0;
 
     public AutoNametagFeature() {
-        super("AutoNametag", "Automatically renames nearby entities with nametags.", FeatureCategory.of("World"), "nametag", "autoname", "autonametag");
+        super("AutoNametag", "自动命名牌", "自动用命名牌重命名附近实体。", FeatureCategory.of("World"), "nametag", "autoname", "autonametag");
     }
 
     @SubscribeEvent

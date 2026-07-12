@@ -20,17 +20,17 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;import static namidevelopme
 @RegisterFeature
 public class AutoSheepFeature extends Feature {
 
-    public final DoubleSetting range = addSetting(new DoubleSetting("Range", 3.00, 1.0, 6.0));
-    public final IntSetting delay = addSetting(new IntSetting("Delay", 1, 0, 20));
-    public final BoolSetting swapSilent = addSetting(new BoolSetting("SwapSilent", true));
-    public final BoolSetting multitask = addSetting(new BoolSetting("Multitask", false));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
+    public final DoubleSetting range = addSetting(new DoubleSetting("Range", "范围", 3.00, 1.0, 6.0));
+    public final IntSetting delay = addSetting(new IntSetting("Delay", "延迟", 1, 0, 20));
+    public final BoolSetting swapSilent = addSetting(new BoolSetting("SwapSilent", "静默切换", true));
+    public final BoolSetting multitask = addSetting(new BoolSetting("Multitask", "多任务", false));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
 
     private int swapCooldown = 0;
 
     public AutoSheepFeature() {
-        super("AutoSheep", "Automatically shears nearby sheep.", FeatureCategory.of("World"), "sheep", "autowool");
+        super("AutoSheep", "自动剪羊", "自动剪附近羊的毛。", FeatureCategory.of("World"), "sheep", "autowool");
     }
 
     @SubscribeEvent

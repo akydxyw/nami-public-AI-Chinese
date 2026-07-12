@@ -19,9 +19,9 @@ public class SpeedFeature extends HudElementFeature {
         KMH, BPS
     }
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
-    public final IntSetting samples = addSetting(new IntSetting("Samples", 80, 10, 200));
-    public final EnumSetting<SpeedMode> mode = addSetting(new EnumSetting<>("Mode", SpeedMode.KMH));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
+    public final IntSetting samples = addSetting(new IntSetting("Samples", "采样数", 80, 10, 200));
+    public final EnumSetting<SpeedMode> mode = addSetting(new EnumSetting<>("Mode", "模式", SpeedMode.KMH));
 
     private double speed = 0;
     private double[] speedSamples;
@@ -32,7 +32,7 @@ public class SpeedFeature extends HudElementFeature {
     private double lastZ = 0;
 
     public SpeedFeature() {
-        super("Speed", "Displays current player speed.", 0, 0, 50, 9);
+        super("速度", "显示当前玩家速度。", 0, 0, 50, 9);
 
         samples.setOnChanged(() -> {
             speedSamples = new double[samples.get()];
@@ -94,13 +94,13 @@ public class SpeedFeature extends HudElementFeature {
             speedStr = formatSpeedNumber(speed * 3.6) + " km/h";
         }
 
-        String textStr = displayLabel.get() ? "Speed: " + speedStr : speedStr;
+        String textStr = displayLabel.get() ? "速度: " + speedStr : speedStr;
 
         width = FONT_SERVICE.getWidth(textStr);
         height = FONT_SERVICE.getHeight();
 
         if (displayLabel.get()) {
-            return CAT_FORMAT.format("{global}Speed: {white}" + speedStr);
+            return CAT_FORMAT.format("{global}速度: {white}" + speedStr);
         } else {
             return Component.literal(textStr);
         }

@@ -23,8 +23,8 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class AutoSignFeature extends Feature {
 
-    public final IntSetting delay = addSetting(new IntSetting("Delay", 5, 1, 20));
-    public final BoolSetting timestamp = addSetting(new BoolSetting("Timestamp", false));
+    public final IntSetting delay = addSetting(new IntSetting("Delay", "延迟", 5, 1, 20));
+    public final BoolSetting timestamp = addSetting(new BoolSetting("Timestamp", "时间戳", false));
 
     private String[] cachedText = null;
     private AbstractSignEditScreen currentScreen = null;
@@ -34,7 +34,7 @@ public class AutoSignFeature extends Feature {
     private boolean isReplacingPacket = false;  // stackoverflow lol
 
     public AutoSignFeature() {
-        super("AutoSign", "Automatically fills signs.", FeatureCategory.of("World"), "sign", "autosign");
+        super("AutoSign", "自动告示牌", "自动填写告示牌。", FeatureCategory.of("World"), "sign", "autosign");
     }
 
     @Override

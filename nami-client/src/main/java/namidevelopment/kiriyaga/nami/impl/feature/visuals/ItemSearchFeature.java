@@ -29,15 +29,15 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;import static namidevelopme
 @RegisterFeature
 public class ItemSearchFeature extends Feature {
 
-    private final WhitelistSetting itemWhitelist = addSetting(new WhitelistSetting("Whitelist", true, WhitelistSetting.Type.ENTITY));
-    public final BoolSetting renderBoxes = addSetting(new BoolSetting("Render", true));
-    public final BoolSetting tracers = addSetting(new BoolSetting("Tracers", false));
-    public final BoolSetting itemFrames = addSetting(new BoolSetting("ItemFrames", false));
-    public final BoolSetting chatFeedback = addSetting(new BoolSetting("ChatFeedback", false));
+    private final WhitelistSetting itemWhitelist = addSetting(new WhitelistSetting("Whitelist", "白名单", true, WhitelistSetting.Type.ENTITY));
+    public final BoolSetting renderBoxes = addSetting(new BoolSetting("Render", "渲染", true));
+    public final BoolSetting tracers = addSetting(new BoolSetting("Tracers", "追踪线", false));
+    public final BoolSetting itemFrames = addSetting(new BoolSetting("ItemFrames", "物品展示框", false));
+    public final BoolSetting chatFeedback = addSetting(new BoolSetting("ChatFeedback", "聊天反馈", false));
 
     private final Set<Integer> sent = new HashSet<>();
     public ItemSearchFeature() {
-        super("ItemSearch", "Searches for specified item entities.", FeatureCategory.of("Render"));
+        super("ItemSearch", "物品搜索", "搜索指定物品实体。", FeatureCategory.of("Render"));
     }
 
     @SubscribeEvent(priority = EventPriority.NORMAL)
@@ -74,7 +74,7 @@ public class ItemSearchFeature extends Feature {
                 Integer entId = entity.getId();
 
                 if (!sent.contains(entId) && chatFeedback.get()) {
-                    Component message = CAT_FORMAT.format("Item: {global}" + item.getItem().getHoverName().getString() + " {gray} found.");
+                    Component message = CAT_FORMAT.format("物品: {global}" + item.getItem().getHoverName().getString() + " {gray} 已找到。");
                     CHAT_SERVICE.sendPersistent(entId.toString(), message);
                     sent.add(entId);
                 }
@@ -105,7 +105,7 @@ public class ItemSearchFeature extends Feature {
                 Integer entId = entity.getId();
 
                 if (!sent.contains(entId) && chatFeedback.get()) {
-                    Component message = CAT_FORMAT.format("Item: {global}" + frame.getItem().getItemName() + " {gray} found.");
+                    Component message = CAT_FORMAT.format("物品: {global}" + frame.getItem().getItemName() + " {gray} 已找到。");
                     CHAT_SERVICE.sendPersistent(entId.toString(), message);
                     sent.add(entId);
                 }

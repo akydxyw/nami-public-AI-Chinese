@@ -16,10 +16,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class AutoWalkFeature extends Feature {
 
-    public final BoolSetting setbackStop = addSetting(new BoolSetting("SetbackStop", true));
+    public final BoolSetting setbackStop = addSetting(new BoolSetting("SetbackStop", "击退停止", true));
 
     public AutoWalkFeature() {
-        super("AutoWalk", "Automatically makes you walk.", FeatureCategory.of("Movement"),"autowalk");
+        super("AutoWalk", "自动行走", "自动行走。", FeatureCategory.of("Movement"),"autowalk");
     }
 
     @Override

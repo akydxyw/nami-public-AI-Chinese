@@ -16,13 +16,13 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class FastAccelFeature extends Feature {
 
-    public final BoolSetting inAir = addSetting(new BoolSetting("InAir", false));
-    public final BoolSetting inWater = addSetting(new BoolSetting("InWater", false));
-    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", 1.0, 0.1, 5.0));
+    public final BoolSetting inAir = addSetting(new BoolSetting("InAir", "空中", false));
+    public final BoolSetting inWater = addSetting(new BoolSetting("InWater", "水中", false));
+    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", "速度", 1.0, 0.1, 5.0));
     private static final double DEFAULT_SPEED = 0.2873;
 
     public FastAccelFeature() {
-        super("FastAccel", "Accelerates movement instantly.", FeatureCategory.of("Movement"), "fastaccel");
+        super("FastAccel", "快速加速", "瞬间加速移动。", FeatureCategory.of("Movement"), "fastaccel");
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)

@@ -24,18 +24,18 @@ public class TickShiftFeature extends Feature {
 
     public enum Mode {PHYSICS, FORCE_TIMER}
 
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.PHYSICS));
-    public final IntSetting packets = addSetting(new IntSetting("Packets", 15, 1, 50));
-    public final DoubleSetting intensity = addSetting(new DoubleSetting("Intensity", 3.0, 1.0, 10.0));
-    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", 0.25, 0.01, 2.0));
-    public final IntSetting amount = addSetting(new IntSetting("Amount", 5, 1, 20));
-    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", true));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.PHYSICS));
+    public final IntSetting packets = addSetting(new IntSetting("Packets", "数据包", 15, 1, 50));
+    public final DoubleSetting intensity = addSetting(new DoubleSetting("Intensity", "强度", 3.0, 1.0, 10.0));
+    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", "速度", 0.25, 0.01, 2.0));
+    public final IntSetting amount = addSetting(new IntSetting("Amount", "数量", 5, 1, 20));
+    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", "自动关闭", true));
 
     private int left = 0;
     private float progress = 0f;
     private boolean physics = true;
 
-    public TickShiftFeature() {super("TickShift", "Tick acceleration to speed up.", FeatureCategory.of("Movement"), "tickshift");
+    public TickShiftFeature() {super("TickShift", "刻偏移", "通过刻加速来提速。", FeatureCategory.of("Movement"), "tickshift");
     }
 
     @Override

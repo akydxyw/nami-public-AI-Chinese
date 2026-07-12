@@ -23,13 +23,13 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;import static namidevelopme
 public class AutoBowReleaseFeature extends Feature {
     public enum TpsMode {NONE, LATEST, AVERAGE}
 
-    public final IntSetting ticks = addSetting(new IntSetting("Delay", 3, 0, 25));
-    public final EnumSetting<TpsMode> tpsMode = addSetting(new EnumSetting<>("TPS", TpsMode.NONE));
+    public final IntSetting ticks = addSetting(new IntSetting("Delay", "延迟", 3, 0, 25));
+    public final EnumSetting<TpsMode> tpsMode = addSetting(new EnumSetting<>("TPS", "TPS", TpsMode.NONE));
 
     private float ticker = 0f;
 
     public AutoBowReleaseFeature() {
-        super("AutoBowRelease", "Automatically releases bow after holding for a set time.", FeatureCategory.of("Combat"), "autbowrelease");
+        super("AutoBowRelease", "自动放箭", "拉弓一段时间后自动放箭。", FeatureCategory.of("Combat"), "autbowrelease");
     }
 
     @Override

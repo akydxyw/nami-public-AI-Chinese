@@ -9,10 +9,10 @@ import static namidevelopment.kiriyaga.nami.Nami.*;
 import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class WatermarkFeature extends HudElementFeature {
-    public final BoolSetting plain = addSetting(new BoolSetting("Plain", false));
+    public final BoolSetting plain = addSetting(new BoolSetting("Plain", "简洁", false));
 
     public WatermarkFeature() {
-        super("Watermark", "Displays client watermark.", 0, 0, 50, 9);
+        super("水印", "显示客户端水印。", 0, 0, 50, 9);
     }
 
     @Override

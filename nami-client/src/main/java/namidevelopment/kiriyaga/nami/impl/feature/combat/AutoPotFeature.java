@@ -38,19 +38,19 @@ public class AutoPotFeature extends Feature { // TODO: refactor this
     public enum SwapMode { NORMAL, SILENT }
     public enum ThrowMode { ABOVE, UNDER }
 
-    public final EnumSetting<Pot> potEffect = addSetting(new EnumSetting<>("Effect", Pot.RESISTANCE));
-    public final IntSetting amplifier = addSetting(new IntSetting("Amplifier", 1, 0, 4));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", false));
-    public final EnumSetting<ThrowMode> throwMode = addSetting(new EnumSetting<>("Throw", ThrowMode.UNDER));
-    public final BoolSetting whenNoTarget = addSetting(new BoolSetting("NoTarget", false));
-    public final BoolSetting onlyPhased = addSetting(new BoolSetting("OnlyPhased", false));
-    public final EnumSetting<SwapMode> swapMode = addSetting(new EnumSetting<>("Swap", SwapMode.SILENT));
-    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", true));
+    public final EnumSetting<Pot> potEffect = addSetting(new EnumSetting<>("Effect", "效果", Pot.RESISTANCE));
+    public final IntSetting amplifier = addSetting(new IntSetting("Amplifier", "等级", 1, 0, 4));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", false));
+    public final EnumSetting<ThrowMode> throwMode = addSetting(new EnumSetting<>("Throw", "投掷", ThrowMode.UNDER));
+    public final BoolSetting whenNoTarget = addSetting(new BoolSetting("NoTarget", "无目标", false));
+    public final BoolSetting onlyPhased = addSetting(new BoolSetting("OnlyPhased", "仅卡墙", false));
+    public final EnumSetting<SwapMode> swapMode = addSetting(new EnumSetting<>("Swap", "切换", SwapMode.SILENT));
+    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", "自动关闭", true));
 
     private final Timer throwTimer = new Timer();
 
     public AutoPotFeature() {
-        super("AutoPot", "Throws specified splash potion under/above you.", FeatureCategory.of("Combat"), "autopot");
+        super("AutoPot", "自动药水", "向你脚下/头顶投掷指定的喷溅药水。", FeatureCategory.of("Combat"), "autopot");
         throwMode.setShowCondition(rotate::get);
     }
 

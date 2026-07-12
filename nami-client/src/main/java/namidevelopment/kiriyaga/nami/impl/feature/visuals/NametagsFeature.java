@@ -42,26 +42,26 @@ import static namidevelopment.kiriyaga.api.util.render.RenderUtil.projectionVisi
 @RegisterFeature
 public class NametagsFeature extends Feature {
 
-    public final BoolSetting self = addSetting(new BoolSetting("Self", false));
-    public final BoolSetting invisible = addSetting(new BoolSetting("Invisibles", true));
-    public final BoolSetting dynamicScale = addSetting(new BoolSetting("DynamicScale", true));
-    public final DoubleSetting scaling = addSetting(new DoubleSetting("Scaling", 1.00, 0.50, 1.50));
-    public final BoolSetting gameMode = addSetting(new BoolSetting("GameMode", false));
-    public final BoolSetting ping = addSetting(new BoolSetting("Ping", true));
-    public final BoolSetting entityId = addSetting(new BoolSetting("EntityID", false));
-    public final BoolSetting health = addSetting(new BoolSetting("Health", true));
-    public final BoolSetting totemPops = addSetting(new BoolSetting("TotemPops", false));
-    public final BoolSetting armor = addSetting(new BoolSetting("Armor", true));
-    public final BoolSetting durability = addSetting(new BoolSetting("Durability", true));
-    public final BoolSetting rectangle = addSetting(new BoolSetting("Background", true));
-    public final BoolSetting items = addSetting(new BoolSetting("Items", false));
-    public final BoolSetting pearls = addSetting(new BoolSetting("Pearls", true));
+    public final BoolSetting self = addSetting(new BoolSetting("Self", "自身", false));
+    public final BoolSetting invisible = addSetting(new BoolSetting("Invisibles", "隐身玩家", true));
+    public final BoolSetting dynamicScale = addSetting(new BoolSetting("DynamicScale", "动态缩放", true));
+    public final DoubleSetting scaling = addSetting(new DoubleSetting("Scaling", "缩放", 1.00, 0.50, 1.50));
+    public final BoolSetting gameMode = addSetting(new BoolSetting("GameMode", "游戏模式", false));
+    public final BoolSetting ping = addSetting(new BoolSetting("Ping", "延迟", true));
+    public final BoolSetting entityId = addSetting(new BoolSetting("EntityID", "实体ID", false));
+    public final BoolSetting health = addSetting(new BoolSetting("Health", "生命", true));
+    public final BoolSetting totemPops = addSetting(new BoolSetting("TotemPops", "图腾触发", false));
+    public final BoolSetting armor = addSetting(new BoolSetting("Armor", "护甲", true));
+    public final BoolSetting durability = addSetting(new BoolSetting("Durability", "耐久度", true));
+    public final BoolSetting rectangle = addSetting(new BoolSetting("Background", "背景", true));
+    public final BoolSetting items = addSetting(new BoolSetting("Items", "物品", false));
+    public final BoolSetting pearls = addSetting(new BoolSetting("Pearls", "末影珍珠", true));
 
     //0, 0, 0, 100
     //19, 19, 19, 140
 
     public NametagsFeature() {
-        super("Nametags", "Draws nametags above certain entities.", FeatureCategory.of("Render"));
+        super("Nametags", "命令名牌", "在特定实体上方绘制命令名牌。", FeatureCategory.of("Render"));
     }
 
     @SubscribeEvent

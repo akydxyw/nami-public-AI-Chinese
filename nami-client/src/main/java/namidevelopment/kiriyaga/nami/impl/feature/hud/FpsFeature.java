@@ -12,11 +12,11 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 public class FpsFeature extends HudElementFeature {
     public enum Mode { DEFAULT, INSTANT}
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.DEFAULT));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.DEFAULT));
 
     public FpsFeature() {
-        super("FPS", "Displays current FPS.", 0, 0, 50, 9);
+        super("帧率", "显示当前帧率。", 0, 0, 50, 9);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class FpsFeature extends HudElementFeature {
 
         String textStr;
         if (displayLabel.get()) {
-            textStr = "FPS: " + fps;
+            textStr = "帧率: " + fps;
         } else {
             textStr = String.valueOf(fps);
         }
@@ -40,7 +40,7 @@ public class FpsFeature extends HudElementFeature {
         height = FONT_SERVICE.getHeight();
 
         if (displayLabel.get()) {
-            return CAT_FORMAT.format("{global}FPS: {white}" + fps);
+            return CAT_FORMAT.format("{global}帧率: {white}" + fps);
         } else {
             return Component.literal(textStr);
         }

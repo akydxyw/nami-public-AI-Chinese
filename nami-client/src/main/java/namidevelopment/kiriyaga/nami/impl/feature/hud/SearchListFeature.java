@@ -25,10 +25,10 @@ public class SearchListFeature extends HudElementFeature {
 
     private final List<TextElement> elements = new ArrayList<>();
 
-    public final EnumSetting<SortMode> sortMode = addSetting(new EnumSetting<>("Sort", SortMode.DESCENDING));
+    public final EnumSetting<SortMode> sortMode = addSetting(new EnumSetting<>("Sort", "排序", SortMode.DESCENDING));
 
     public SearchListFeature() {
-        super("SearchList", "Shows nearby blocks found by search.", 0, 0, 50, 10);
+        super("搜索列表", "显示搜索到的附近方块。", 0, 0, 50, 10);
     }
 
     @Override

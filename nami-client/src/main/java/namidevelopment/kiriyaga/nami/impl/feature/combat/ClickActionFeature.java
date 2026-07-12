@@ -31,14 +31,14 @@ public class ClickActionFeature extends Feature {
 
     public enum GlidingAction  { NONE, FIREWORK, WIND}
 
-    public final EnumSetting<GroundAction> groundAction = addSetting(new EnumSetting<>("Ground", GroundAction.NONE));
-    public final EnumSetting<GlidingAction> glidingAction = addSetting(new EnumSetting<>("Gliding", GlidingAction.FIREWORK));
-    public final BoolSetting checkCooldown = addSetting(new BoolSetting("CheckCooldown", true));
-    public final BoolSetting entityCheck = addSetting(new BoolSetting("EntityCheck", true));
-    public final KeyBindSetting useKey = addSetting(new KeyBindSetting("Use", KeyBindSetting.KEY_NONE));
+    public final EnumSetting<GroundAction> groundAction = addSetting(new EnumSetting<>("Ground", "地面", GroundAction.NONE));
+    public final EnumSetting<GlidingAction> glidingAction = addSetting(new EnumSetting<>("Gliding", "滑翔", GlidingAction.FIREWORK));
+    public final BoolSetting checkCooldown = addSetting(new BoolSetting("CheckCooldown", "检查冷却", true));
+    public final BoolSetting entityCheck = addSetting(new BoolSetting("EntityCheck", "实体检查", true));
+    public final KeyBindSetting useKey = addSetting(new KeyBindSetting("Use", "使用", KeyBindSetting.KEY_NONE));
 
     public ClickActionFeature() {
-        super("ClickAction", "Uses configured item when pressing key.", FeatureCategory.of("Combat"), "clickpearl");
+        super("ClickAction", "点击动作", "按下按键时使用配置的物品。", FeatureCategory.of("Combat"), "clickpearl");
     }
 
     private boolean recall;

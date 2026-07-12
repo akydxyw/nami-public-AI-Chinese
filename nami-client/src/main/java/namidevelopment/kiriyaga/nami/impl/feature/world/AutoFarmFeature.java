@@ -30,17 +30,17 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class AutoFarmFeature extends Feature {
 
-    public final DoubleSetting range = addSetting(new DoubleSetting("Range", 4.5, 1.0, 6.0));
-    public final IntSetting radius = addSetting(new IntSetting("Radius", 6, 1, 8));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
-    public final BoolSetting swapSilent  = addSetting(new BoolSetting("SwapSilent", true));
-    public final BoolSetting swing  = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting simulate = addSetting(new BoolSetting("Simulate", false));
-    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", true));
-    public final BoolSetting multiTask = addSetting(new BoolSetting("MultiTask", false));
+    public final DoubleSetting range = addSetting(new DoubleSetting("Range", "范围", 4.5, 1.0, 6.0));
+    public final IntSetting radius = addSetting(new IntSetting("Radius", "半径", 6, 1, 8));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
+    public final BoolSetting swapSilent  = addSetting(new BoolSetting("SwapSilent", "静默切换", true));
+    public final BoolSetting swing  = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final BoolSetting simulate = addSetting(new BoolSetting("Simulate", "模拟", false));
+    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", "严格方向", true));
+    public final BoolSetting multiTask = addSetting(new BoolSetting("MultiTask", "多任务", false));
 
     public AutoFarmFeature() {
-        super("AutoFarm", "Automatically plants specified croops.", FeatureCategory.of("World"));
+        super("AutoFarm", "自动农场", "自动种植指定的作物。", FeatureCategory.of("World"));
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)

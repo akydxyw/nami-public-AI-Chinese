@@ -13,11 +13,11 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;import static namidevelopme
 @RegisterFeature
 public class DirectionFeature extends HudElementFeature {
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
-    public final BoolSetting precise = addSetting(new BoolSetting("Precise", false));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
+    public final BoolSetting precise = addSetting(new BoolSetting("Precise", "精确", false));
 
     public DirectionFeature() {
-        super("Direction", "Displays accurate yaw/pitch.", 0, 0, 50, 9);
+        super("方向", "显示精确的偏航/俯仰角。", 0, 0, 50, 9);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class DirectionFeature extends HudElementFeature {
         else
             dirText = String.format(Locale.US, "%.0f {secondary}[{white}%.0f{secondary}]", yaw, pitch); // locale is wild
 
-        String text = displayLabel.get() ? "{global}Direction: {white}" + dirText : "{white}" + dirText;
+        String text = displayLabel.get() ? "{global}方向: {white}" + dirText : "{white}" + dirText;
 
 
         width = FONT_SERVICE.getWidth(text.replace("{global}", "").replace("{white}", "").replace("{secondary}", ""));

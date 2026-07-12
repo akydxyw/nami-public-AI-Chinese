@@ -16,13 +16,13 @@ import static namidevelopment.kiriyaga.api.NamiApi.ROTATION_SERVICE;
 @RegisterFeature
 public class AntiAimFeature extends Feature {
 
-    public final DoubleSetting rotationSpeed = addSetting(new DoubleSetting("Speed", 5.0, 0.1, 50.0));
-    public final DoubleSetting pitchSetting = addSetting(new DoubleSetting("Pitch", 0.0, -90.0, 90.0));
+    public final DoubleSetting rotationSpeed = addSetting(new DoubleSetting("Speed", "速度", 5.0, 0.1, 50.0));
+    public final DoubleSetting pitchSetting = addSetting(new DoubleSetting("Pitch", "俯仰", 0.0, -90.0, 90.0));
 
     private float currentYaw = 0.0f;
 
     public AntiAimFeature() {
-        super("AntiAim", "Make you, spin!.", FeatureCategory.of("Movement"), "antiaim");
+        super("AntiAim", "反瞄准", "让你旋转！", FeatureCategory.of("Movement"), "antiaim");
     }
 
     @Override

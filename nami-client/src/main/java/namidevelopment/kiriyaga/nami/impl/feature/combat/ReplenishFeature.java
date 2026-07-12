@@ -21,15 +21,15 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class ReplenishFeature extends Feature {
 
-    public final IntSetting percentage = addSetting(new IntSetting("Percentage", 20, 10, 50));
-    public final BoolSetting alternative = addSetting(new BoolSetting("Alternative", false));
-    public final BoolSetting inScreen = addSetting(new BoolSetting("InScreen", false));
+    public final IntSetting percentage = addSetting(new IntSetting("Percentage", "百分比", 20, 10, 50));
+    public final BoolSetting alternative = addSetting(new BoolSetting("Alternative", "备用", false));
+    public final BoolSetting inScreen = addSetting(new BoolSetting("InScreen", "界面内", false));
 
     private final Map<Integer, Integer> hotbarTicks = new HashMap<>();
     private final Map<Integer, Item> lastHotbarItems = new HashMap<>();
 
     public ReplenishFeature() {
-        super("Replenish", "Automatically refills items in hotbar.", FeatureCategory.of("Combat"));
+        super("Replenish", "补充", "自动补充快捷栏物品。", FeatureCategory.of("Combat"));
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)

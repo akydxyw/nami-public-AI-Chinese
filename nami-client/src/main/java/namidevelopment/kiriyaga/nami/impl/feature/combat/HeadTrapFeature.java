@@ -20,12 +20,12 @@ import static namidevelopment.kiriyaga.api.util.BlockUtils.isPlaceable;
 @RegisterFeature
 public class HeadTrapFeature extends Feature {
 
-    public final BoolSetting crawl = addSetting(new BoolSetting("Crawl", true));
+    public final BoolSetting crawl = addSetting(new BoolSetting("Crawl", "爬行", true));
 
     private final TrapComponent trap;
 
     public HeadTrapFeature() {
-        super("HeadTrap", "Places a block above your head.", FeatureCategory.of("Combat"), "headtrap");
+        super("HeadTrap", "头部陷阱", "在你头顶放置方块。", FeatureCategory.of("Combat"), "headtrap");
         this.trap = new TrapComponent(this);
     }
 

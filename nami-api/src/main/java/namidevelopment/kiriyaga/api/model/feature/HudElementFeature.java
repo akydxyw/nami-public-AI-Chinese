@@ -35,13 +35,13 @@ public abstract class HudElementFeature extends Feature {
         this.width = width;
         this.height = height;
 
-        this.x = addSetting(new DoubleSetting("x", defaultX, 0, 1));
+        this.x = addSetting(new DoubleSetting("x", "X坐标", defaultX, 0, 1));
         this.x.setShow(false);
-        this.y = addSetting(new DoubleSetting("y", defaultY, 0, 1));
+        this.y = addSetting(new DoubleSetting("y", "Y坐标", defaultY, 0, 1));
         this.y.setShow(false);
-        this.label = addSetting(new EnumSetting<LabelPosition>("Label", LabelPosition.TOP));
+        this.label = addSetting(new EnumSetting<LabelPosition>("Label", "标签", LabelPosition.TOP));
         this.label.setShow(false);
-        this.alignment = addSetting(new EnumSetting<>("Alignment", HudAlignment.LEFT));
+        this.alignment = addSetting(new EnumSetting<>("Alignment", "对齐", HudAlignment.LEFT));
     }
 
     public Component getDisplayText() {

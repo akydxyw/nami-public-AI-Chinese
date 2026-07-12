@@ -65,49 +65,49 @@ public class AutoCrystalFeature extends Feature {
     public enum Sequential {NONE, FULL }
 
     //place
-    public final BoolSetting doPlace = addSetting(new BoolSetting("Place", true));
-    public final DoubleSetting placeRange = addSetting(new DoubleSetting("PlaceRange","Range", 6.0, 1.0, 6.0));
-    public final IntSetting placeDelay = addSetting(new IntSetting("PlaceDelay","Delay", 0, 0, 20));
-    public final BoolSetting placeRotate = addSetting(new BoolSetting("PlaceRotate","Rotate", true));
-    public final BoolSetting placeSwing = addSetting(new BoolSetting("PlaceSwing","Swing", true));
-    public final BoolSetting placeIgnoreItems = addSetting(new BoolSetting("PlaceIgnoreItems","IgnoreItems", true));
-    public final BoolSetting placeIgnoreCrystals = addSetting(new BoolSetting("PlaceIgnoreCrystals","IgnoreCrystals", true));
-    public final BoolSetting placeStrictDirection = addSetting(new BoolSetting("PlaceStrictDirection","StrictDirection", true));
-    public final BoolSetting placeSwapSilent = addSetting(new BoolSetting("PlaceSwapSilent","SwapSilent", true));
-    public final BoolSetting placeMultitask = addSetting(new BoolSetting("PlaceMultitask","Multitask", false));
-    public final BoolSetting placeIdPredict = addSetting(new BoolSetting("PlaceIdPredict","IdPredict", false));
-    public final IntSetting placeMinPredict = addSetting(new IntSetting("PlaceMinPredict","MinPredict", 0, 0, 20));
-    public final IntSetting placeMaxPredict = addSetting(new IntSetting("PlaceMaxPredict","MaxPredict", 0, 0, 20));
+    public final BoolSetting doPlace = addSetting(new BoolSetting("Place", "放置", true));
+    public final DoubleSetting placeRange = addSetting(new DoubleSetting("PlaceRange","范围", 6.0, 1.0, 6.0));
+    public final IntSetting placeDelay = addSetting(new IntSetting("PlaceDelay","延迟", 0, 0, 20));
+    public final BoolSetting placeRotate = addSetting(new BoolSetting("PlaceRotate","旋转", true));
+    public final BoolSetting placeSwing = addSetting(new BoolSetting("PlaceSwing","挥动", true));
+    public final BoolSetting placeIgnoreItems = addSetting(new BoolSetting("PlaceIgnoreItems","忽略物品", true));
+    public final BoolSetting placeIgnoreCrystals = addSetting(new BoolSetting("PlaceIgnoreCrystals","忽略水晶", true));
+    public final BoolSetting placeStrictDirection = addSetting(new BoolSetting("PlaceStrictDirection","严格方向", true));
+    public final BoolSetting placeSwapSilent = addSetting(new BoolSetting("PlaceSwapSilent","静默切换", true));
+    public final BoolSetting placeMultitask = addSetting(new BoolSetting("PlaceMultitask","多任务", false));
+    public final BoolSetting placeIdPredict = addSetting(new BoolSetting("PlaceIdPredict","ID预测", false));
+    public final IntSetting placeMinPredict = addSetting(new IntSetting("PlaceMinPredict","最小预测", 0, 0, 20));
+    public final IntSetting placeMaxPredict = addSetting(new IntSetting("PlaceMaxPredict","最大预测", 0, 0, 20));
 
     //break
-    public final BoolSetting doBreak = addSetting(new BoolSetting("Break", true));
-    public final DoubleSetting breakRange = addSetting(new DoubleSetting("BreakRange","Range", 3.0, 1.0, 7.0));
-    public final BoolSetting breakStanceAbuse = addSetting(new BoolSetting("BreakStanceAbuse","StanceAbuse", false));
-    public final IntSetting breakInhibit = addSetting(new IntSetting("Inhibit", 4, 1, 20));
-    public final IntSetting breakDelay = addSetting(new IntSetting("BreakDelay","Delay", 0, 0, 20));
-    public final BoolSetting breakRotate = addSetting(new BoolSetting("BreakRotate","Rotate", true));
-    public final BoolSetting breakSwing = addSetting(new BoolSetting("BreakSwing","Swing", true));
-    public final BoolSetting breakMultitask = addSetting(new BoolSetting("BreakMultitask","Multitask", false));
-    public final IntSetting breakAge = addSetting(new IntSetting("Age", 0, 0, 20));
-    public final BoolSetting breakAntiWeak = addSetting(new BoolSetting("BreakAntiWeak","AntiWeak", false));
-    public final BoolSetting breakSwapSilent = addSetting(new BoolSetting("BreakSwapSilent","SwapSilent", true));
-    public final EnumSetting<Sequential> breakSequential = addSetting(new EnumSetting<>("BreakSequential","Sequential", Sequential.NONE));
+    public final BoolSetting doBreak = addSetting(new BoolSetting("Break", "破坏", true));
+    public final DoubleSetting breakRange = addSetting(new DoubleSetting("BreakRange","范围", 3.0, 1.0, 7.0));
+    public final BoolSetting breakStanceAbuse = addSetting(new BoolSetting("BreakStanceAbuse","姿态滥用", false));
+    public final IntSetting breakInhibit = addSetting(new IntSetting("Inhibit", "抑制", 4, 1, 20));
+    public final IntSetting breakDelay = addSetting(new IntSetting("BreakDelay","延迟", 0, 0, 20));
+    public final BoolSetting breakRotate = addSetting(new BoolSetting("BreakRotate","旋转", true));
+    public final BoolSetting breakSwing = addSetting(new BoolSetting("BreakSwing","挥动", true));
+    public final BoolSetting breakMultitask = addSetting(new BoolSetting("BreakMultitask","多任务", false));
+    public final IntSetting breakAge = addSetting(new IntSetting("Age", "年龄", 0, 0, 20));
+    public final BoolSetting breakAntiWeak = addSetting(new BoolSetting("BreakAntiWeak","防虚弱", false));
+    public final BoolSetting breakSwapSilent = addSetting(new BoolSetting("BreakSwapSilent","静默切换", true));
+    public final EnumSetting<Sequential> breakSequential = addSetting(new EnumSetting<>("BreakSequential","顺序", Sequential.NONE));
 
     //damages
-    public final BoolSetting assumeBestArmor = addSetting(new BoolSetting("AssumeBestArmor", true));
-    public final BoolSetting noSelfPop = addSetting(new BoolSetting("NoSelfPop", true));
-    public final DoubleSetting minDamage = addSetting(new DoubleSetting("MinDamage", 4.0, 0.0, 36.0));
-    public final DoubleSetting maxSelfDamage = addSetting(new DoubleSetting("MaxSelfDamage", 12.0, 0.0, 36.0));
-    public final IntSetting balance = addSetting(new IntSetting("Balance", 4, 2, 6));
-    public final DoubleSetting healthBalance = addSetting(new DoubleSetting("HealthBalance", 0.20, 0.00, 1.00));
-    public final DoubleSetting armorBalance = addSetting(new DoubleSetting("ArmorBalance", 0.20, 0.00, 1.00));
-    public final BoolSetting antiFeetTrap = addSetting(new BoolSetting("AntiFeetTrap", true));
-    public final DoubleSetting antiFeetTrapFactor = addSetting(new DoubleSetting("Factor", 0.55, 0.3, 0.7));
-    public final BoolSetting ignoreTerrain = addSetting(new BoolSetting("IgnoreTerrain","IgnoreTerrain", true));
+    public final BoolSetting assumeBestArmor = addSetting(new BoolSetting("AssumeBestArmor", "假设最佳护甲", true));
+    public final BoolSetting noSelfPop = addSetting(new BoolSetting("NoSelfPop", "防自身爆图腾", true));
+    public final DoubleSetting minDamage = addSetting(new DoubleSetting("MinDamage", "最小伤害", 4.0, 0.0, 36.0));
+    public final DoubleSetting maxSelfDamage = addSetting(new DoubleSetting("MaxSelfDamage", "最大自身伤害", 12.0, 0.0, 36.0));
+    public final IntSetting balance = addSetting(new IntSetting("Balance", "平衡", 4, 2, 6));
+    public final DoubleSetting healthBalance = addSetting(new DoubleSetting("HealthBalance", "生命平衡", 0.20, 0.00, 1.00));
+    public final DoubleSetting armorBalance = addSetting(new DoubleSetting("ArmorBalance", "护甲平衡", 0.20, 0.00, 1.00));
+    public final BoolSetting antiFeetTrap = addSetting(new BoolSetting("AntiFeetTrap", "防脚陷阱", true));
+    public final DoubleSetting antiFeetTrapFactor = addSetting(new DoubleSetting("Factor", "系数", 0.55, 0.3, 0.7));
+    public final BoolSetting ignoreTerrain = addSetting(new BoolSetting("IgnoreTerrain","忽略地形", true));
 
     //render
-    public final BoolSetting render = addSetting(new BoolSetting("Render", true));
-    public final BoolSetting debug = addSetting(new BoolSetting("Debug", false));
+    public final BoolSetting render = addSetting(new BoolSetting("Render", "渲染", true));
+    public final BoolSetting debug = addSetting(new BoolSetting("Debug", "调试", false));
 
     private int breakTimer, placeTimer = 0; // i love it
     private PlaceTarget lastPlaceTarget = null;
@@ -127,7 +127,7 @@ public class AutoCrystalFeature extends Feature {
     private ChunkAccess cachedChunk;
 
     public AutoCrystalFeature() {
-        super("AutoCrystal", "Automatically places and break crystals to kill people, if you are good enough!.", FeatureCategory.of("Combat"), "autocrystal", "ac", "crystalaura");
+        super("AutoCrystal", "自动水晶", "自动放置和破坏水晶来击杀玩家，如果你技术够好！", FeatureCategory.of("Combat"), "autocrystal", "ac", "crystalaura");
         debug.setShow(false);
 
         breakRange.setShowCondition(() -> doBreak.get());
@@ -202,7 +202,7 @@ public class AutoCrystalFeature extends Feature {
 
         this.clearDisplayInfo();
         this.addDisplayInfo(String.format(Locale.US, "%.2f", lastTotalDamage));
-        this.addDisplayInfo(String.format(Locale.US, "%.2f", lastCalcTimeMs) + "ms");
+        this.addDisplayInfo(String.format(Locale.US, "%.2f", lastCalcTimeMs) + "毫秒");
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)

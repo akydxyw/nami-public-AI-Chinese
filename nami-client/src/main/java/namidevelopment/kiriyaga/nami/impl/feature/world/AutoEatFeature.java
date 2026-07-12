@@ -24,17 +24,17 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class AutoEatFeature extends Feature {
 
-    public final IntSetting swapDelayTicksSetting = addSetting(new IntSetting("Delay", 5, 1, 20));
-    public final DoubleSetting minHunger = addSetting(new DoubleSetting("Hunger", 19.0, 0.0, 19.0));
-    public final DoubleSetting minHealth = addSetting(new DoubleSetting("Health", 0.0, 0.0, 19.0));
-    public final BoolSetting allowGapples = addSetting(new BoolSetting("Gapples", true));
-    public final BoolSetting allowPoisoned = addSetting(new BoolSetting("Poisoned", false));
+    public final IntSetting swapDelayTicksSetting = addSetting(new IntSetting("Delay", "延迟", 5, 1, 20));
+    public final DoubleSetting minHunger = addSetting(new DoubleSetting("Hunger", "饥饿值", 19.0, 0.0, 19.0));
+    public final DoubleSetting minHealth = addSetting(new DoubleSetting("Health", "生命值", 0.0, 0.0, 19.0));
+    public final BoolSetting allowGapples = addSetting(new BoolSetting("Gapples", "金苹果", true));
+    public final BoolSetting allowPoisoned = addSetting(new BoolSetting("Poisoned", "有毒食物", false));
 
     public final AtomicBoolean eating = new AtomicBoolean(false);
     private volatile int swapCooldown = 0;
 
     public AutoEatFeature() {
-        super("AutoEat", "Automatically eats best food.", FeatureCategory.of("World"), "autoeat");
+        super("AutoEat", "自动进食", "自动食用最佳食物。", FeatureCategory.of("World"), "autoeat");
     }
 
     @Override

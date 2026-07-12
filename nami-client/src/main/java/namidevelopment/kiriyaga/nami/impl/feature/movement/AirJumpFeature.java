@@ -14,11 +14,11 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class AirJumpFeature extends Feature {
 
-    public final KeyBindSetting useKey = addSetting(new KeyBindSetting("Use", KeyBindSetting.KEY_NONE));
-    public final BoolSetting setOnGround = addSetting(new BoolSetting("SetOnGround", true));
+    public final KeyBindSetting useKey = addSetting(new KeyBindSetting("Use", "使用", KeyBindSetting.KEY_NONE));
+    public final BoolSetting setOnGround = addSetting(new BoolSetting("SetOnGround", "设置落地", true));
 
     public AirJumpFeature() {
-        super("AirJump", "Allows jumping in air when pressing key.", FeatureCategory.of("Movement"), "airjump");
+        super("AirJump", "空中跳跃", "按键时允许在空中跳跃。", FeatureCategory.of("Movement"), "airjump");
     }
 
     @Override

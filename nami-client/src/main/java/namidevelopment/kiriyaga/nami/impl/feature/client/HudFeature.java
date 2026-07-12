@@ -22,10 +22,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class HudFeature extends Feature {
 
-    public final BoolSetting chatAnimation = addSetting(new BoolSetting("ChatAnimation", true));
+    public final BoolSetting chatAnimation = addSetting(new BoolSetting("ChatAnimation", "聊天动画", true));
 
     public HudFeature() {
-        super("HUD", "Renders in-game hud.", FeatureCategory.of("Client"));
+        super("HUD", "HUD", "渲染游戏内HUD。", FeatureCategory.of("Client"));
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)

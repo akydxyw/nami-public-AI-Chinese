@@ -26,12 +26,12 @@ import static namidevelopment.kiriyaga.api.util.render.RenderUtil.drawLine;
 @RegisterFeature
 public class BreadcrumbsFeature extends Feature {
 
-    public final BoolSetting self = addSetting(new BoolSetting("Self", true));
-    public final BoolSetting arrows = addSetting(new BoolSetting("Arrows", false));
-    public final BoolSetting pearls = addSetting(new BoolSetting("Pearls", true));
-    public final DoubleSetting width = addSetting(new DoubleSetting("Width", 1.50, 0.5, 2.5));
-    public final IntSetting sampleDelay = addSetting(new IntSetting("Delay", 2, 1, 10));
-    public final IntSetting fadeTime = addSetting(new IntSetting("Fade", 60, 10, 200));
+    public final BoolSetting self = addSetting(new BoolSetting("Self", "自身", true));
+    public final BoolSetting arrows = addSetting(new BoolSetting("Arrows", "箭矢", false));
+    public final BoolSetting pearls = addSetting(new BoolSetting("Pearls", "末影珍珠", true));
+    public final DoubleSetting width = addSetting(new DoubleSetting("Width", "宽度", 1.50, 0.5, 2.5));
+    public final IntSetting sampleDelay = addSetting(new IntSetting("Delay", "延迟", 2, 1, 10));
+    public final IntSetting fadeTime = addSetting(new IntSetting("Fade", "淡出", 60, 10, 200));
 
     private final List<Breadcrumb> selfCrumbs = new LinkedList<>();
     private final List<Breadcrumb> arrowCrumbs = new LinkedList<>();
@@ -43,7 +43,7 @@ public class BreadcrumbsFeature extends Feature {
     private final Map<Integer, Vec3> lastPearlPositions = new HashMap<>();
 
     public BreadcrumbsFeature() {
-        super("Breadcrumbs", "Shows movement trails.", FeatureCategory.of("Render"));
+        super("Breadcrumbs", "面包屑", "显示移动轨迹。", FeatureCategory.of("Render"));
     }
 
     @Override

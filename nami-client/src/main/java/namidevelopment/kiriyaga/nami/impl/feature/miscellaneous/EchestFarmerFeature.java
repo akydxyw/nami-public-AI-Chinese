@@ -26,20 +26,20 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class EchestFarmerFeature extends Feature {
 
-    public final DoubleSetting distance = addSetting(new DoubleSetting("Range", 4.5, 1.0, 6.0));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
-    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", true));
-    public final BoolSetting swapSilent = addSetting(new BoolSetting("SwapSilent", true));
-    public final BoolSetting multiTask = addSetting(new BoolSetting("MultiTask", false));
-    public final BoolSetting simulate = addSetting(new BoolSetting("Simulate", false));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting grim = addSetting(new BoolSetting("Grim", false));
-    public final BoolSetting render = addSetting(new BoolSetting("Render", true));
+    public final DoubleSetting distance = addSetting(new DoubleSetting("Range", "范围", 4.5, 1.0, 6.0));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
+    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", "严格方向", true));
+    public final BoolSetting swapSilent = addSetting(new BoolSetting("SwapSilent", "静默切换", true));
+    public final BoolSetting multiTask = addSetting(new BoolSetting("MultiTask", "多任务", false));
+    public final BoolSetting simulate = addSetting(new BoolSetting("Simulate", "模拟", false));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥动", true));
+    public final BoolSetting grim = addSetting(new BoolSetting("Grim", "Grim", false));
+    public final BoolSetting render = addSetting(new BoolSetting("Render", "渲染", true));
 
     private BlockPos renderPos = null;
 
     public EchestFarmerFeature() {
-        super("EchestFarmer", "Automatically places and breaks ender chests.", FeatureCategory.of("Miscellaneous"));
+        super("EchestFarmer", "末影箱农场", "自动放置和破坏末影箱。", FeatureCategory.of("Miscellaneous"));
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)

@@ -14,10 +14,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class BreakHighlightFeature extends Feature {
 
-    public final BoolSetting fill = addSetting(new BoolSetting("Fill", true));
+    public final BoolSetting fill = addSetting(new BoolSetting("Fill", "填充", true));
 
     public BreakHighlightFeature() {
-        super("BreakHighlight", "Highlights block being broken.", FeatureCategory.of("Render"));
+        super("BreakHighlight", "破坏高亮", "高亮正在被破坏的方块。", FeatureCategory.of("Render"));
     }
 
     @SubscribeEvent

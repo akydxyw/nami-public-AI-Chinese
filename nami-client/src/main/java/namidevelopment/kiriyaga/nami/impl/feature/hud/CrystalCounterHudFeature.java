@@ -27,14 +27,14 @@ public class CrystalCounterHudFeature extends HudElementFeature {
         SPAWN, EXPLOSION
     }
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
-    public final BoolSetting precise = addSetting(new BoolSetting("Precise", false));
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.SPAWN));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
+    public final BoolSetting precise = addSetting(new BoolSetting("Precise", "精确", false));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.SPAWN));
 
     private final Deque<Long> marked = new ArrayDeque<>();
 
     public CrystalCounterHudFeature() {
-        super("CPS", "Displays current crystals per second(WARNING: IT WORKS FOR ALL ENTITIES IN RANGE).", 0, 0, 100, 30);
+        super("水晶计数", "显示当前每秒水晶数（警告：对范围内的所有实体生效）。", 0, 0, 100, 30);
     }
 
     @SubscribeEvent
@@ -65,7 +65,7 @@ public class CrystalCounterHudFeature extends HudElementFeature {
         String formatted = "";
 
         if (displayLabel.get()) {
-            formatted += "{global}CPS: ";
+            formatted += "{global}水晶计数: ";
         }
 
         formatted += "{white}" + formatNumber(cps);

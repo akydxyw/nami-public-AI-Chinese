@@ -16,11 +16,11 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class RespawnFeature extends Feature {
 
-    public final BoolSetting sendCords = addSetting(new BoolSetting("LogCords", true)); //todo: this doesnt work
-    public final BoolSetting autoRespawn = addSetting(new BoolSetting("AutoRespawn", false));
+    public final BoolSetting sendCords = addSetting(new BoolSetting("LogCords", "记录坐标", true)); //todo: this doesnt work
+    public final BoolSetting autoRespawn = addSetting(new BoolSetting("AutoRespawn", "自动重生", false));
 
     public RespawnFeature() {
-        super("Respawn", "Death screen tweaks.", FeatureCategory.of("Miscellaneous"), "autorespawn");
+        super("Respawn", "重生", "死亡界面调整。", FeatureCategory.of("Miscellaneous"), "autorespawn");
     }
 
     boolean b = false;

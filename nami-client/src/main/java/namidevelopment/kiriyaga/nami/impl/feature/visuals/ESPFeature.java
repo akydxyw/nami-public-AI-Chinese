@@ -44,20 +44,20 @@ public class ESPFeature extends Feature {
 
     public enum RenderMode {GLOW, BOX}
 
-    public final BoolSetting showPlayers = addSetting(new BoolSetting("Players", true));
-    public final BoolSetting showPeacefuls = addSetting(new BoolSetting("Peacefuls", true));
-    public final BoolSetting showNeutrals = addSetting(new BoolSetting("Neutrals", false));
-    public final BoolSetting showHostiles = addSetting(new BoolSetting("Hostiles", false));
-    public final BoolSetting showItems = addSetting(new BoolSetting("Items", true));
-    public final BoolSetting itemBoundingBox = addSetting(new BoolSetting("ItemBoundingBox", true));
-    public final BoolSetting showCrystals = addSetting(new BoolSetting("Crystals", false));
-    public final BoolSetting showMobSpawns = addSetting(new BoolSetting("MobSpawn", false));
-    public final IntSetting mobSpawnLightThreshold = addSetting(new IntSetting("SpawnLight", 7, 0, 15));
-    public final EnumSetting<RenderMode> renderMode = addSetting(new EnumSetting<>("Mode", RenderMode.GLOW));
-    public final DoubleSetting outlineDistance = addSetting(new DoubleSetting("Distance", 52, 15, 256));
+    public final BoolSetting showPlayers = addSetting(new BoolSetting("Players", "玩家", true));
+    public final BoolSetting showPeacefuls = addSetting(new BoolSetting("Peacefuls", "和平生物", true));
+    public final BoolSetting showNeutrals = addSetting(new BoolSetting("Neutrals", "中立生物", false));
+    public final BoolSetting showHostiles = addSetting(new BoolSetting("Hostiles", "敌对生物", false));
+    public final BoolSetting showItems = addSetting(new BoolSetting("Items", "物品", true));
+    public final BoolSetting itemBoundingBox = addSetting(new BoolSetting("ItemBoundingBox", "物品包围盒", true));
+    public final BoolSetting showCrystals = addSetting(new BoolSetting("Crystals", "水晶", false));
+    public final BoolSetting showMobSpawns = addSetting(new BoolSetting("MobSpawn", "怪物生成", false));
+    public final IntSetting mobSpawnLightThreshold = addSetting(new IntSetting("SpawnLight", "生成光照", 7, 0, 15));
+    public final EnumSetting<RenderMode> renderMode = addSetting(new EnumSetting<>("Mode", "模式", RenderMode.GLOW));
+    public final DoubleSetting outlineDistance = addSetting(new DoubleSetting("Distance", "距离", 52, 15, 256));
 
     public ESPFeature() {
-        super("ESP", "Highlights certain entities.", FeatureCategory.of("Render"), "esp", "wh", "boxes");
+        super("ESP", "透视", "高亮特定实体。", FeatureCategory.of("Render"), "esp", "wh", "boxes");
         outlineDistance.setShowCondition(() -> renderMode.get() == RenderMode.GLOW);
         itemBoundingBox.setShowCondition(() -> showItems.get());
         mobSpawnLightThreshold.setShowCondition(showMobSpawns::get);

@@ -32,16 +32,16 @@ public class AutoXPFeature extends Feature {
 
     public enum SwapMode {NORMAL, SILENT }
 
-    public final IntSetting durability = addSetting(new IntSetting("Durability", 80, 70, 99));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", false));
-    public final BoolSetting packet = addSetting(new BoolSetting("Packet", false));
-    public final IntSetting packetShift = addSetting(new IntSetting("ShiftTicks", 2, 1, 6));
-    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", true));
-    public final EnumSetting<SwapMode> swapMode = addSetting(new EnumSetting<>("Swap", SwapMode.SILENT));
-    public final BoolSetting is1_12 = addSetting(new BoolSetting("1.12", false));
+    public final IntSetting durability = addSetting(new IntSetting("Durability", "耐久", 80, 70, 99));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", false));
+    public final BoolSetting packet = addSetting(new BoolSetting("Packet", "封包", false));
+    public final IntSetting packetShift = addSetting(new IntSetting("ShiftTicks", "发包数", 2, 1, 6));
+    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", "自动关闭", true));
+    public final EnumSetting<SwapMode> swapMode = addSetting(new EnumSetting<>("Swap", "切换", SwapMode.SILENT));
+    public final BoolSetting is1_12 = addSetting(new BoolSetting("1.12", "1.12", false));
 
     public AutoXPFeature() {
-        super("AutoXP", "Automatically repair armor with XP bottles.", FeatureCategory.of("Combat"), "autoxp");
+        super("AutoXP", "自动经验", "用经验瓶自动修复护甲。", FeatureCategory.of("Combat"), "autoxp");
         packetShift.setShowCondition(packet::get);
     }
 

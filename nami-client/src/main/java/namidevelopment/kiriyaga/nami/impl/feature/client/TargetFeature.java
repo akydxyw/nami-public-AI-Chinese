@@ -11,14 +11,14 @@ import namidevelopment.kiriyaga.api.model.setting.EnumSetting;
 @RegisterFeature
 public class TargetFeature extends Feature implements TargetFeatureConfig {
 
-    public final DoubleSetting targetRange = addSetting(new DoubleSetting("Range", 10.0, 4.0, 16.0));
-    public final DoubleSetting minTicksExisted = addSetting(new DoubleSetting("Age", 12, 0.0, 20.0));
-    public final BoolSetting targetPlayers = addSetting(new BoolSetting("Players", true));
-    public final BoolSetting targetHostiles = addSetting(new BoolSetting("Hostiles", true));
-    public final BoolSetting targetNeutrals = addSetting(new BoolSetting("Neutrals", false));
-    public final BoolSetting targetPassives = addSetting(new BoolSetting("Passives", false));
-    public final BoolSetting targetPrijectiles = addSetting(new BoolSetting("Projectiles", true));
-    public final EnumSetting<TargetPriority> priority = addSetting(new EnumSetting<>("Priority", TargetPriority.SMART));
+    public final DoubleSetting targetRange = addSetting(new DoubleSetting("Range", "范围", 10.0, 4.0, 16.0));
+    public final DoubleSetting minTicksExisted = addSetting(new DoubleSetting("Age", "年龄", 12, 0.0, 20.0));
+    public final BoolSetting targetPlayers = addSetting(new BoolSetting("Players", "玩家", true));
+    public final BoolSetting targetHostiles = addSetting(new BoolSetting("Hostiles", "敌对生物", true));
+    public final BoolSetting targetNeutrals = addSetting(new BoolSetting("Neutrals", "中立生物", false));
+    public final BoolSetting targetPassives = addSetting(new BoolSetting("Passives", "被动生物", false));
+    public final BoolSetting targetPrijectiles = addSetting(new BoolSetting("Projectiles", "抛射物", true));
+    public final EnumSetting<TargetPriority> priority = addSetting(new EnumSetting<>("Priority", "优先级", TargetPriority.SMART));
 
     @Override
     public double getTargetRange() {
@@ -61,7 +61,7 @@ public class TargetFeature extends Feature implements TargetFeatureConfig {
     }
 
     public TargetFeature() {
-        super("Target", "Allows you to configure target logic.", FeatureCategory.of("Client"), "entity", "entitySERVICE", "enity");
+        super("Target", "目标", "允许你配置目标逻辑。", FeatureCategory.of("Client"), "entity", "entitySERVICE", "enity");
         if (!this.isEnabled())
             this.toggle();
     }

@@ -17,10 +17,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.INPUT_SERVICE;
 @RegisterFeature
 public class AutoJumpFeature extends Feature {
 
-    public final BoolSetting setbackStop = addSetting(new BoolSetting("SetbackStop", true));
+    public final BoolSetting setbackStop = addSetting(new BoolSetting("SetbackStop", "击退停止", true));
 
     public AutoJumpFeature() {
-        super("AutoJump", "Automatically makes you jump.", FeatureCategory.of("Movement"));
+        super("AutoJump", "自动跳跃", "自动跳跃。", FeatureCategory.of("Movement"));
     }
 
     @Override

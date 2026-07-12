@@ -17,10 +17,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.FEATURE_SERVICE;
 @RegisterFeature
 public class BlockHighlightFeature extends Feature {
 
-    public final BoolSetting fill = addSetting(new BoolSetting("Fill", true));
+    public final BoolSetting fill = addSetting(new BoolSetting("Fill", "填充", true));
 
     public BlockHighlightFeature() {
-        super("BlockHighlight", "Highlights block you look at.", FeatureCategory.of("Render"));
+        super("BlockHighlight", "方块高亮", "高亮你注视的方块。", FeatureCategory.of("Render"));
     }
 
     @SubscribeEvent

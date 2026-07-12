@@ -10,13 +10,13 @@ import namidevelopment.kiriyaga.api.model.setting.IntSetting;
 @RegisterFeature
 public class LatencyFeature extends Feature implements LatencyFeatureConfig {
 
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", Mode.NEW));
-    public final IntSetting smoothingStrength = addSetting(new IntSetting("Smooth", 10, 1, 50));
-    public final IntSetting unstableConnectionTimeout = addSetting(new IntSetting("Unstable", 3, 1, 60));
-    public final IntSetting keepAliveInterval = addSetting(new IntSetting("Interval", 900, 250, 2500));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Mode", "模式", Mode.NEW));
+    public final IntSetting smoothingStrength = addSetting(new IntSetting("Smooth", "平滑", 10, 1, 50));
+    public final IntSetting unstableConnectionTimeout = addSetting(new IntSetting("Unstable", "不稳定", 3, 1, 60));
+    public final IntSetting keepAliveInterval = addSetting(new IntSetting("Interval", "间隔", 900, 250, 2500));
 
     public LatencyFeature() {
-        super("Latency", "Defines how ping should be calculated.", FeatureCategory.of("Client"), "ping", "SERVICE", "managr", "png");
+        super("Latency", "延迟", "定义延迟应如何计算。", FeatureCategory.of("Client"), "ping", "SERVICE", "managr", "png");
         if (!this.isEnabled())
             this.toggle();
 

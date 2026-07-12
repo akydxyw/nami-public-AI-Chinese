@@ -31,17 +31,17 @@ public class AutoTunnelFeature extends Feature {
         P3x3
     }
 
-    public final EnumSetting<TunnelMode> mode = addSetting(new EnumSetting<>("Mode", TunnelMode.P1x2));
-    public final DoubleSetting distance = addSetting(new DoubleSetting("Range", 5.0, 1.0, 6.0));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting grim = addSetting(new BoolSetting("Grim", false));
-    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", true));
+    public final EnumSetting<TunnelMode> mode = addSetting(new EnumSetting<>("Mode", "模式", TunnelMode.P1x2));
+    public final DoubleSetting distance = addSetting(new DoubleSetting("Range", "范围", 5.0, 1.0, 6.0));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final BoolSetting grim = addSetting(new BoolSetting("Grim", "Grim", false));
+    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", "严格方向", true));
 
     private final Set<BlockPos> cache = new HashSet<>();
 
     public AutoTunnelFeature() {
-        super("AutoTunnel", "Automatically tunnels blocks in front of you.", FeatureCategory.of("World"));
+        super("AutoTunnel", "自动隧道", "自动挖掘你前方的方块。", FeatureCategory.of("World"));
     }
 
     @Override

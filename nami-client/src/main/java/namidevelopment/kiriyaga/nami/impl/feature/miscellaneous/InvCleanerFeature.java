@@ -16,14 +16,14 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class InvCleanerFeature extends Feature {
 
-    public final IntSetting delay = addSetting(new IntSetting("Delay", 1, 0, 20));
-    private final WhitelistSetting whitelist = addSetting(new WhitelistSetting("Whitelist", false, WhitelistSetting.Type.ITEM));
-    private final WhitelistSetting blacklist = addSetting(new WhitelistSetting("Blacklist", true, WhitelistSetting.Type.ITEM));
+    public final IntSetting delay = addSetting(new IntSetting("Delay", "延迟", 1, 0, 20));
+    private final WhitelistSetting whitelist = addSetting(new WhitelistSetting("Whitelist", "白名单", false, WhitelistSetting.Type.ITEM));
+    private final WhitelistSetting blacklist = addSetting(new WhitelistSetting("Blacklist", "黑名单", true, WhitelistSetting.Type.ITEM));
 
     private int i = 0;
 
     public InvCleanerFeature() {
-        super("InvCleaner", "Throws specified items from your inventory.", FeatureCategory.of("Miscellaneous"), "cleaner", "inventorycleaner");
+        super("InvCleaner", "物品栏清理", "从物品栏丢弃指定物品。", FeatureCategory.of("Miscellaneous"), "cleaner", "inventorycleaner");
     }
 
     @Override

@@ -14,7 +14,7 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class SprintFeature extends Feature {
 
-    public final BoolSetting inLiquid = addSetting(new BoolSetting("InLiquid", true));
+    public final BoolSetting inLiquid = addSetting(new BoolSetting("InLiquid", "在液体中", true));
 /*
     public final BoolSetting twobtwot = addSetting(new BoolSetting("2b2t", false));
 */
@@ -22,7 +22,7 @@ public class SprintFeature extends Feature {
     private int shouldSprintTicks = 0; // yes sorry
 
     public SprintFeature() {
-        super("Sprint", "Automatically makes you sprint while moving.", FeatureCategory.of("Movement"));
+        super("Sprint", "自动冲刺", "移动时自动冲刺。", FeatureCategory.of("Movement"));
     }
 
     public void stopSprinting(int i) {

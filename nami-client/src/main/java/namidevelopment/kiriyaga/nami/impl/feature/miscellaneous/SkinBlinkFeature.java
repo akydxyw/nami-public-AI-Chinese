@@ -37,19 +37,19 @@ public class SkinBlinkFeature extends Feature {
         }
     }
 
-    public final BoolSetting head = addSetting(new BoolSetting("Head", true));
-    public final BoolSetting body = addSetting(new BoolSetting("Body", false));
-    public final BoolSetting arms = addSetting(new BoolSetting("Arms", false));
-    public final BoolSetting legs = addSetting(new BoolSetting("Legs", false));
-    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", 1.0, 0.1, 20.0));
-    public final BoolSetting random = addSetting(new BoolSetting("Random", false));
+    public final BoolSetting head = addSetting(new BoolSetting("Head", "头部", true));
+    public final BoolSetting body = addSetting(new BoolSetting("Body", "身体", false));
+    public final BoolSetting arms = addSetting(new BoolSetting("Arms", "手臂", false));
+    public final BoolSetting legs = addSetting(new BoolSetting("Legs", "腿部", false));
+    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", "速度", 1.0, 0.1, 20.0));
+    public final BoolSetting random = addSetting(new BoolSetting("Random", "随机", false));
 
     private Set<PlayerModelPart> enabledPlayerModelParts;
     private long lastBlinkTime = 0;
     private final Random randomizer = new Random();
 
     public SkinBlinkFeature() {
-        super("SkinBlink", "Blinks player model layer parts.", FeatureCategory.of("Miscellaneous"), "skinblink");
+        super("SkinBlink", "皮肤闪烁", "闪烁玩家模型层部件。", FeatureCategory.of("Miscellaneous"), "skinblink");
     }
 
     @Override

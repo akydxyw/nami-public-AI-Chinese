@@ -26,7 +26,7 @@ public class CrawlTrapFeature extends Feature {
     private final TrapComponent trap;
 
     public CrawlTrapFeature() {
-        super("CrawlTrap", "Places a block above target head to hold them in crawling position.", FeatureCategory.of("Combat"), "crawltrap");
+        super("CrawlTrap", "爬行陷阱", "在目标头顶放置方块以使其保持爬行状态。", FeatureCategory.of("Combat"), "crawltrap");
         this.trap = new TrapComponent(this);
     }
 

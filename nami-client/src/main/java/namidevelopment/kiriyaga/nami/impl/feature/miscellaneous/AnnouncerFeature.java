@@ -25,21 +25,21 @@ public class AnnouncerFeature extends Feature {
         NONE, BELL, EXP
     }
 
-    public final BoolSetting joinAnnounce = addSetting(new BoolSetting("JoinAnnounce", false));
-    public final BoolSetting joinFriends = addSetting(new BoolSetting("JoinAnnounceFriends", "Friends", true));
-    public final BoolSetting joinEnemy = addSetting(new BoolSetting("JoinAnnounceEnemy", "Enemy", false));
-    public final BoolSetting joinEveryone = addSetting(new BoolSetting("JoinAnnounceOthers", "Others", false));
-    public final BoolSetting visualRange = addSetting(new BoolSetting("VisualRange", false));
-    public final BoolSetting rangeFriends = addSetting(new BoolSetting("VisualRangeFriends", "Friends", true));
-    public final BoolSetting rangeEveryone = addSetting(new BoolSetting("VisualRangeOthers", "Others", false));
-    public final EnumSetting<VisualRangeMode> soundMode = addSetting(new EnumSetting<>("Sound", VisualRangeMode.NONE));
-    public final BoolSetting totemPopCounter = addSetting(new BoolSetting("TotemPopCounter", false));
-    public final BoolSetting selfPop = addSetting(new BoolSetting("TotemPopCounterSelf", "Self", false));
-    public final BoolSetting friendsPop = addSetting(new BoolSetting("TotemPopCounterFriends", "Friends", false));
-    public final BoolSetting othersPop = addSetting(new BoolSetting("TotemPopCounterOthers", "Others", true));
+    public final BoolSetting joinAnnounce = addSetting(new BoolSetting("JoinAnnounce", "加入公告", false));
+    public final BoolSetting joinFriends = addSetting(new BoolSetting("JoinAnnounceFriends", "好友", true));
+    public final BoolSetting joinEnemy = addSetting(new BoolSetting("JoinAnnounceEnemy", "敌人", false));
+    public final BoolSetting joinEveryone = addSetting(new BoolSetting("JoinAnnounceOthers", "其他人", false));
+    public final BoolSetting visualRange = addSetting(new BoolSetting("VisualRange", "视野范围", false));
+    public final BoolSetting rangeFriends = addSetting(new BoolSetting("VisualRangeFriends", "好友", true));
+    public final BoolSetting rangeEveryone = addSetting(new BoolSetting("VisualRangeOthers", "其他人", false));
+    public final EnumSetting<VisualRangeMode> soundMode = addSetting(new EnumSetting<>("Sound", "声音", VisualRangeMode.NONE));
+    public final BoolSetting totemPopCounter = addSetting(new BoolSetting("TotemPopCounter", "图腾计数", false));
+    public final BoolSetting selfPop = addSetting(new BoolSetting("TotemPopCounterSelf", "自己", false));
+    public final BoolSetting friendsPop = addSetting(new BoolSetting("TotemPopCounterFriends", "好友", false));
+    public final BoolSetting othersPop = addSetting(new BoolSetting("TotemPopCounterOthers", "其他人", true));
 
     public AnnouncerFeature() {
-        super("Announcer", "Announces in chat when a certain action happened.", FeatureCategory.of("Miscellaneous"), "joinannounce", "joins", "announce", "visualrange");
+        super("Announcer", "公告", "当特定操作发生时在聊天中公告。", FeatureCategory.of("Miscellaneous"), "joinannounce", "joins", "announce", "visualrange");
         joinEveryone.setShowCondition(joinAnnounce::get);
         joinFriends.setShowCondition(joinAnnounce::get);
         joinEnemy.setShowCondition(joinAnnounce::get);

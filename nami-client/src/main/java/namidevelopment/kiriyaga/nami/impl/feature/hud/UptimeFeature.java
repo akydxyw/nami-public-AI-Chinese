@@ -10,10 +10,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class UptimeFeature extends HudElementFeature {
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
 
     public UptimeFeature() {
-        super("Uptime", "Displays total time of minecraft run time.", 0, 0, 120, 10);
+        super("运行时间", "显示 Minecraft 总运行时间。", 0, 0, 120, 10);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class UptimeFeature extends HudElementFeature {
         String formatted;
 
         if (displayLabel.get()) {
-            formatted = String.format("{global}Uptime{secondary}({white}%02d{secondary}:{white}%02d{secondary})", hours, minutes);
+            formatted = String.format("{global}运行时间{secondary}({white}%02d{secondary}:{white}%02d{secondary})", hours, minutes);
         } else {
             formatted = String.format("{secondary}({white}%02d{secondary}:{white}%02d{secondary})", hours, minutes);
         }

@@ -33,14 +33,14 @@ import static namidevelopment.kiriyaga.api.util.entity.PlayerUtils.isPhased;
 public class AutoMineFeature extends Feature {
     public enum Mode {GRIM }
 
-    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Logic", Mode.GRIM));
-    public final BoolSetting face = addSetting(new BoolSetting("Face", true));
-    public final BoolSetting antiCrawl = addSetting(new BoolSetting("AntiCrawl", false));
-    public final BoolSetting always = addSetting(new BoolSetting("Always", true));
-    public final BoolSetting matchTargetY = addSetting(new BoolSetting("MatchTargetY", true));
+    public final EnumSetting<Mode> mode = addSetting(new EnumSetting<>("Logic", "逻辑", Mode.GRIM));
+    public final BoolSetting face = addSetting(new BoolSetting("Face", "面部", true));
+    public final BoolSetting antiCrawl = addSetting(new BoolSetting("AntiCrawl", "防爬行", false));
+    public final BoolSetting always = addSetting(new BoolSetting("Always", "始终", true));
+    public final BoolSetting matchTargetY = addSetting(new BoolSetting("MatchTargetY", "匹配目标Y", true));
 
     public AutoMineFeature() {
-        super("AutoMine", "Manages which blocks shoulf SpeedMine Feature mine.", FeatureCategory.of("Combat"));
+        super("AutoMine", "自动挖矿", "管理 SpeedMine 功能应挖掘哪些方块。", FeatureCategory.of("Combat"));
         always.setShowCondition(antiCrawl::get);
         matchTargetY.setShowCondition(antiCrawl::get);
     }

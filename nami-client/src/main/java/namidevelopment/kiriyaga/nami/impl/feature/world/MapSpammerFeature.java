@@ -32,22 +32,22 @@ import static namidevelopment.kiriyaga.api.util.RotationUtils.*;
 @RegisterFeature
 public class MapSpammerFeature extends Feature {
 
-    public final BoolSetting place = addSetting(new BoolSetting("Place", true));
-    public final DoubleSetting placeRange = addSetting(new DoubleSetting("PlaceRange", "Range", 4.5, 1.0, 6.0));
-    public final IntSetting placeDelay = addSetting(new IntSetting("PlaceDelay", "Delay", 0, 0, 20));
-    public final BoolSetting placeswapSilent = addSetting(new BoolSetting("PlaceswapSilent", "SwapSilent", true));
-    public final BoolSetting placeMultitask = addSetting(new BoolSetting("PlaceMultitask", "Multitask", false));
-    public final BoolSetting placeSwing = addSetting(new BoolSetting("PlaceSwing", "Swing", true));
-    public final BoolSetting placeRotate = addSetting(new BoolSetting("PlaceRotate", "Rotate", true));
+    public final BoolSetting place = addSetting(new BoolSetting("Place", "放置", true));
+    public final DoubleSetting placeRange = addSetting(new DoubleSetting("PlaceRange", "范围", 4.5, 1.0, 6.0));
+    public final IntSetting placeDelay = addSetting(new IntSetting("PlaceDelay", "延迟", 0, 0, 20));
+    public final BoolSetting placeswapSilent = addSetting(new BoolSetting("PlaceswapSilent", "静默切换", true));
+    public final BoolSetting placeMultitask = addSetting(new BoolSetting("PlaceMultitask", "多任务", false));
+    public final BoolSetting placeSwing = addSetting(new BoolSetting("PlaceSwing", "挥手", true));
+    public final BoolSetting placeRotate = addSetting(new BoolSetting("PlaceRotate", "旋转", true));
 
-    public final BoolSetting attack = addSetting(new BoolSetting("Attack", true));
-    public final DoubleSetting attackRange = addSetting(new DoubleSetting("AttackRange", "Range", 3.00, 1.0, 6.0));
-    public final IntSetting attackDelay = addSetting(new IntSetting("AttackDelay", "Delay", 4, 0, 20));
-    public final IntSetting attackCooldownSeconds = addSetting(new IntSetting("AttackCooldown", "CooldownSec", 10, 1, 60));
-    public final BoolSetting attackInhibit = addSetting(new BoolSetting("AttackInhibit", "Inhibit", true));
-    public final BoolSetting attackRotate = addSetting(new BoolSetting("AttackRotate", "Rotate", true));
-    public final BoolSetting attackSwing = addSetting(new BoolSetting("AttackSwing", "Swing", true));
-    public final BoolSetting attackMultitask = addSetting(new BoolSetting("AttackMultitask", "Multitask", false));
+    public final BoolSetting attack = addSetting(new BoolSetting("Attack", "攻击", true));
+    public final DoubleSetting attackRange = addSetting(new DoubleSetting("AttackRange", "范围", 3.00, 1.0, 6.0));
+    public final IntSetting attackDelay = addSetting(new IntSetting("AttackDelay", "延迟", 4, 0, 20));
+    public final IntSetting attackCooldownSeconds = addSetting(new IntSetting("AttackCooldown", "冷却秒数", 10, 1, 60));
+    public final BoolSetting attackInhibit = addSetting(new BoolSetting("AttackInhibit", "抑制", true));
+    public final BoolSetting attackRotate = addSetting(new BoolSetting("AttackRotate", "旋转", true));
+    public final BoolSetting attackSwing = addSetting(new BoolSetting("AttackSwing", "挥手", true));
+    public final BoolSetting attackMultitask = addSetting(new BoolSetting("AttackMultitask", "多任务", false));
 
     private int placeCD = 0;
     private int attackCD = 0;
@@ -57,7 +57,7 @@ public class MapSpammerFeature extends Feature {
     private final Map<Integer, Long> attackedCD = new HashMap<>();
 
     public MapSpammerFeature() {
-        super("MapSpammer", "Automatically fills item frames with your maps.", FeatureCategory.of("World"));
+        super("MapSpammer", "地图刷屏", "自动用你的地图填充物品展示框。", FeatureCategory.of("World"));
         placeRange.setShowCondition(place::get);
         placeDelay.setShowCondition(place::get);
         placeswapSilent.setShowCondition(place::get);

@@ -17,17 +17,17 @@ import java.awt.*;
 @RegisterFeature
 public class ColorFeature extends Feature implements ColorFeatureConfig {
 
-    public final ColorSetting globalColor = addSetting(new ColorSetting("Global", new Color(50, 137, 179, 255), true));
-    public final BoolSetting rainbowEnabled = addSetting(new BoolSetting("Rainbow", false));
-    public final DoubleSetting rainbowSpeed = addSetting(new DoubleSetting("Speed", 0.005, 0.0001, 1.50));
+    public final ColorSetting globalColor = addSetting(new ColorSetting("Global", "全局", new Color(50, 137, 179, 255), true));
+    public final BoolSetting rainbowEnabled = addSetting(new BoolSetting("Rainbow", "彩虹", false));
+    public final DoubleSetting rainbowSpeed = addSetting(new DoubleSetting("Speed", "速度", 0.005, 0.0001, 1.50));
 
-    public final ColorSetting friendColor = addSetting(new ColorSetting("Friend", new Color(85, 255, 255, 255), true));
-    public final ColorSetting enemyColor = addSetting(new ColorSetting("Enemy", new Color(255, 85, 85, 255), true));
+    public final ColorSetting friendColor = addSetting(new ColorSetting("Friend", "友方", new Color(85, 255, 255, 255), true));
+    public final ColorSetting enemyColor = addSetting(new ColorSetting("Enemy", "敌方", new Color(255, 85, 85, 255), true));
 
     private int phase = 0;
 
     public ColorFeature() {
-        super("Color", "Customizes color scheme.", FeatureCategory.of("Client"), "colr", "c", "colors", "clitor");
+        super("Color", "颜色", "自定义颜色方案。", FeatureCategory.of("Client"), "colr", "c", "colors", "clitor");
         if (!this.isEnabled())
             this.toggle();
         rainbowSpeed.setShowCondition(() -> rainbowEnabled.get());

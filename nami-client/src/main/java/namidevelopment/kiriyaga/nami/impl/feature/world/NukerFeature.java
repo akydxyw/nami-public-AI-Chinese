@@ -33,16 +33,16 @@ import static namidevelopment.kiriyaga.api.util.RotationUtils.getClosestPointToE
 public class NukerFeature extends Feature {
 
     public enum NukerMode { SPHERE, SELECTIVE}
-    public final EnumSetting<NukerMode> mode = addSetting(new EnumSetting<>("Mode", NukerMode.SPHERE));
-    public final DoubleSetting range = addSetting(new DoubleSetting("Range", 4.5, 1.0, 6.0));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting grim = addSetting(new BoolSetting("Grim", false));
-    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", true));
-    public final BoolSetting safeOnly = addSetting(new BoolSetting("SafeOnly", false));
-    public final BoolSetting flatten = addSetting(new BoolSetting("Flatten", true));
-    public final BoolSetting doubleMine = addSetting(new BoolSetting("DoubleMine", false));
-    public final WhitelistSetting whitelist = addSetting(new WhitelistSetting("Whitelist", true, WhitelistSetting.Type.BLOCK));
+    public final EnumSetting<NukerMode> mode = addSetting(new EnumSetting<>("Mode", "模式", NukerMode.SPHERE));
+    public final DoubleSetting range = addSetting(new DoubleSetting("Range", "范围", 4.5, 1.0, 6.0));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final BoolSetting grim = addSetting(new BoolSetting("Grim", "Grim", false));
+    public final BoolSetting strictDirection = addSetting(new BoolSetting("StrictDirection", "严格方向", true));
+    public final BoolSetting safeOnly = addSetting(new BoolSetting("SafeOnly", "仅安全", false));
+    public final BoolSetting flatten = addSetting(new BoolSetting("Flatten", "平整", true));
+    public final BoolSetting doubleMine = addSetting(new BoolSetting("DoubleMine", "双重挖掘", false));
+    public final WhitelistSetting whitelist = addSetting(new WhitelistSetting("Whitelist", "白名单", true, WhitelistSetting.Type.BLOCK));
 
     private Set<BlockPos> selectiveTargets = new HashSet<>();
     private Block blockBeingMined = null;
@@ -51,7 +51,7 @@ public class NukerFeature extends Feature {
     private boolean b = false;
 
     public NukerFeature() {
-        super("Nuker", "Automatically breaks blocks around you.", FeatureCategory.of("World"));
+        super("Nuker", "范围挖掘", "自动破坏周围的方块。", FeatureCategory.of("World"));
     }
 
     @SubscribeEvent(priority = EventPriority.NORMAL)

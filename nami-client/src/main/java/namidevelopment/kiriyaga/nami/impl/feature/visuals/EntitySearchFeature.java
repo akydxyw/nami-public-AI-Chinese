@@ -27,12 +27,12 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class EntitySearchFeature extends Feature {
 
-    private final WhitelistSetting entityWhitelist = addSetting(new WhitelistSetting("Whitelist", true, WhitelistSetting.Type.ENTITY));
-    public final BoolSetting renderBoxes = addSetting(new BoolSetting("Render", true));
-    public final BoolSetting tracers = addSetting(new BoolSetting("Tracers", false));
+    private final WhitelistSetting entityWhitelist = addSetting(new WhitelistSetting("Whitelist", "白名单", true, WhitelistSetting.Type.ENTITY));
+    public final BoolSetting renderBoxes = addSetting(new BoolSetting("Render", "渲染", true));
+    public final BoolSetting tracers = addSetting(new BoolSetting("Tracers", "追踪线", false));
 
     public EntitySearchFeature() {
-        super("EntitySearch", "Searchs for specified entities.", FeatureCategory.of("Render"));
+        super("EntitySearch", "实体搜索", "搜索指定实体。", FeatureCategory.of("Render"));
     }
 
     @SubscribeEvent(priority = EventPriority.NORMAL)

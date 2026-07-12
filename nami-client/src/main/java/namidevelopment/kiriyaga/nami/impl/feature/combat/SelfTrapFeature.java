@@ -21,16 +21,16 @@ import static namidevelopment.kiriyaga.api.util.BlockUtils.isPlaceable;
 @RegisterFeature
 public class SelfTrapFeature extends Feature {
 
-    public final BoolSetting face = addSetting(new BoolSetting("Face", true));
-    public final BoolSetting head = addSetting(new BoolSetting("Head", true));
-    public final BoolSetting extension = addSetting(new BoolSetting("Extension", false));
-    public final BoolSetting jumpDisable = addSetting(new BoolSetting("JumpDisable", false));
-    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", false));
+    public final BoolSetting face = addSetting(new BoolSetting("Face", "面部", true));
+    public final BoolSetting head = addSetting(new BoolSetting("Head", "头部", true));
+    public final BoolSetting extension = addSetting(new BoolSetting("Extension", "延伸", false));
+    public final BoolSetting jumpDisable = addSetting(new BoolSetting("JumpDisable", "跳跃关闭", false));
+    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", "自动关闭", false));
 
     private final TrapComponent trap;
 
     public SelfTrapFeature() {
-        super("SelfTrap", "Traps you to prevent damage.", FeatureCategory.of("Combat"), "selftrap");
+        super("SelfTrap", "自身陷阱", "困住自己以防止伤害。", FeatureCategory.of("Combat"), "selftrap");
         this.trap = new TrapComponent(this);
     }
 

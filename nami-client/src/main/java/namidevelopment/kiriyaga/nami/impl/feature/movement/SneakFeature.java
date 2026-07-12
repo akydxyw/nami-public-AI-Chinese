@@ -29,7 +29,7 @@ public class SneakFeature extends Feature {
     private final SafeWalkComponent safeWalk = new SafeWalkComponent();
 
     public SneakFeature() {
-        super("Sneak", "Automatically makes you sneak.", FeatureCategory.of("Movement"));
+        super("Sneak", "潜行", "自动潜行。", FeatureCategory.of("Movement"));
         safeWalk.register(this);
     }
 

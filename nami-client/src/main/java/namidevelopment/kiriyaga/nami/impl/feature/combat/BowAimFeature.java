@@ -31,12 +31,12 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class BowAimFeature extends Feature {
 
-    public final BoolSetting render = addSetting(new BoolSetting("Render", true));
+    public final BoolSetting render = addSetting(new BoolSetting("Render", "渲染", true));
 
     private Entity currentTarget = null;
 
     public BowAimFeature() {
-        super("BowAim", "Aims at certain targets with bow/trident.", FeatureCategory.of("Combat"), "bowbot", "aimbot", "bowaimbot");
+        super("BowAim", "弓箭瞄准", "用弓/三叉戟瞄准特定目标。", FeatureCategory.of("Combat"), "bowbot", "aimbot", "bowaimbot");
     }
 
     @Override

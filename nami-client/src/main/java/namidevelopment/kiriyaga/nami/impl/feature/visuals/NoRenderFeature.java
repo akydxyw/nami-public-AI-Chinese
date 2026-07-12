@@ -17,32 +17,32 @@ public class NoRenderFeature extends Feature {
 
 
 
-    public final BoolSetting noTilt = addSetting(new BoolSetting("NoTilt", true));
-    public final BoolSetting noBob = addSetting(new BoolSetting("NoBob", true));
-    public final IntSetting tileEntity = addSetting(new IntSetting("TileEntity", 0, 0, 75));
-    public final BoolSetting portalGui = addSetting(new BoolSetting("PortalGui", true));
-    public final BoolSetting noFire = addSetting(new BoolSetting("NoFire", true));
-    public final BoolSetting noBackground = addSetting(new BoolSetting("NoBackground", true));
-    public final BoolSetting noTotemParticle = addSetting(new BoolSetting("NoPopParticle", false));
-    public final BoolSetting noWaterParticle = addSetting(new BoolSetting("NoWaterParticle", true));
-    public final BoolSetting noExplosion = addSetting(new BoolSetting("NoExplosion", true));
-    public final BoolSetting noBlockBreak = addSetting(new BoolSetting("NoBreakParticle", false)); // todo this shit broke
-    public final BoolSetting noLiguid = addSetting(new BoolSetting("NoLiquid", false));
-    public final BoolSetting noWall = addSetting(new BoolSetting("NoWall", false));
-    public final BoolSetting noVignette = addSetting(new BoolSetting("NoVignette", true));
-    public final BoolSetting noTotem = addSetting(new BoolSetting("NoTotem", true));
-    public final BoolSetting noBossBar = addSetting(new BoolSetting("NoBoss", true));
-    public final BoolSetting noPortal = addSetting(new BoolSetting("NoPortalGui", true));
-    public final BoolSetting noPotIcon = addSetting(new BoolSetting("NoPotIcon", true));
-    public final BoolSetting noDarkness = addSetting(new BoolSetting("NoDarkness", true));
-    public final BoolSetting noFog = addSetting(new BoolSetting("NoFog", true));
-    public final BoolSetting noArmor = addSetting(new BoolSetting("NoArmor", true)); // todo this shit broke
-    public final BoolSetting noNausea = addSetting(new BoolSetting("NoNausea", true));
-    public final BoolSetting noPumpkin = addSetting(new BoolSetting("NoPumpkin", false));
-    public final BoolSetting noPowderedSnow = addSetting(new BoolSetting("NoPowdered", false));
+    public final BoolSetting noTilt = addSetting(new BoolSetting("NoTilt", "无倾斜", true));
+    public final BoolSetting noBob = addSetting(new BoolSetting("NoBob", "无晃动", true));
+    public final IntSetting tileEntity = addSetting(new IntSetting("TileEntity", "方块实体", 0, 0, 75));
+    public final BoolSetting portalGui = addSetting(new BoolSetting("PortalGui", "传送门界面", true));
+    public final BoolSetting noFire = addSetting(new BoolSetting("NoFire", "无火焰", true));
+    public final BoolSetting noBackground = addSetting(new BoolSetting("NoBackground", "无背景", true));
+    public final BoolSetting noTotemParticle = addSetting(new BoolSetting("NoPopParticle", "无图腾粒子", false));
+    public final BoolSetting noWaterParticle = addSetting(new BoolSetting("NoWaterParticle", "无水粒子", true));
+    public final BoolSetting noExplosion = addSetting(new BoolSetting("NoExplosion", "无爆炸", true));
+    public final BoolSetting noBlockBreak = addSetting(new BoolSetting("NoBreakParticle", "无破坏粒子", false)); // todo this shit broke
+    public final BoolSetting noLiguid = addSetting(new BoolSetting("NoLiquid", "无液体", false));
+    public final BoolSetting noWall = addSetting(new BoolSetting("NoWall", "无墙壁", false));
+    public final BoolSetting noVignette = addSetting(new BoolSetting("NoVignette", "无晕影", true));
+    public final BoolSetting noTotem = addSetting(new BoolSetting("NoTotem", "无图腾", true));
+    public final BoolSetting noBossBar = addSetting(new BoolSetting("NoBoss", "无Boss条", true));
+    public final BoolSetting noPortal = addSetting(new BoolSetting("NoPortalGui", "无传送门界面", true));
+    public final BoolSetting noPotIcon = addSetting(new BoolSetting("NoPotIcon", "无药水图标", true));
+    public final BoolSetting noDarkness = addSetting(new BoolSetting("NoDarkness", "无黑暗", true));
+    public final BoolSetting noFog = addSetting(new BoolSetting("NoFog", "无雾", true));
+    public final BoolSetting noArmor = addSetting(new BoolSetting("NoArmor", "无护甲", true)); // todo this shit broke
+    public final BoolSetting noNausea = addSetting(new BoolSetting("NoNausea", "无反胃", true));
+    public final BoolSetting noPumpkin = addSetting(new BoolSetting("NoPumpkin", "无南瓜头", false));
+    public final BoolSetting noPowderedSnow = addSetting(new BoolSetting("NoPowdered", "无细雪", false));
 
     public NoRenderFeature() {
-        super("NoRender", "Prevent rendering certain overlays/effects.", FeatureCategory.of("Render"), "norender");
+        super("NoRender", "无渲染", "阻止渲染特定覆盖层/效果。", FeatureCategory.of("Render"), "norender");
         noFire.setOnChanged(this::reloadRenderer);
         noBackground.setOnChanged(this::reloadRenderer);
         noLiguid.setOnChanged(this::reloadRenderer);

@@ -14,10 +14,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class TotemCountFeature extends HudElementFeature {
 
-    public final BoolSetting white = addSetting(new BoolSetting("White", true));
+    public final BoolSetting white = addSetting(new BoolSetting("White", "白色", true));
 
     public TotemCountFeature() {
-        super("TotemCount", "Displays number of totems in inventory.", 0, 0, 20, 20);
+        super("图腾数量", "显示物品栏中的图腾数量。", 0, 0, 20, 20);
         this.label.setShow(true);
     }
 

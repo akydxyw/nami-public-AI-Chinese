@@ -20,10 +20,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class PotCounterHudFeature extends HudElementFeature {
 
-    public final EnumSetting<AutoPotFeature.Pot> potEffect = addSetting(new EnumSetting<>("Effect", AutoPotFeature.Pot.RESISTANCE));
-    public final IntSetting amplifier = addSetting(new IntSetting("Amplifier", 1, 0, 4));
+    public final EnumSetting<AutoPotFeature.Pot> potEffect = addSetting(new EnumSetting<>("Effect", "效果", AutoPotFeature.Pot.RESISTANCE));
+    public final IntSetting amplifier = addSetting(new IntSetting("Amplifier", "增幅", 1, 0, 4));
 
-    public PotCounterHudFeature() {super("PotCounter", "Displays potion count and active effect time.", 0, 0, 100, 20);
+    public PotCounterHudFeature() {super("药水计数", "显示药水数量和激活效果时间。", 0, 0, 100, 20);
     }
 
     @Override

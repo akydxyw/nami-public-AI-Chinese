@@ -14,10 +14,10 @@ import static namidevelopment.kiriyaga.api.util.RotationUtils.alignYRot;
 @RegisterFeature
 public class YawFeature extends Feature {
 
-    public final IntSetting directions = addSetting(new IntSetting("Directions", 8, 4, 16));
+    public final IntSetting directions = addSetting(new IntSetting("Directions", "方向数", 8, 4, 16));
 
     public YawFeature() {
-        super("Yaw", "Snap player yaw to nearest fixed angle.", FeatureCategory.of("Movement"));
+        super("Yaw", "偏航", "将玩家偏航角对齐到最近固定角度。", FeatureCategory.of("Movement"));
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)

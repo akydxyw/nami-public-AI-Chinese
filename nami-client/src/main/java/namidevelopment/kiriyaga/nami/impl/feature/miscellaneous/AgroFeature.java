@@ -30,10 +30,10 @@ public class AgroFeature extends Feature {
         CREAKING
     }
 
-    public final EnumSetting<Mode> modeSetting = new EnumSetting<>("Mode", Mode.ENDERMAN);
+    public final EnumSetting<Mode> modeSetting = new EnumSetting<>("Mode", "模式", Mode.ENDERMAN);
 
     public AgroFeature() {
-        super("Agro", "Automatically looks at certain mobs.", FeatureCategory.of("Miscellaneous"));
+        super("Agro", "仇恨", "自动看向特定生物。", FeatureCategory.of("Miscellaneous"));
         addSetting(modeSetting);
     }
 

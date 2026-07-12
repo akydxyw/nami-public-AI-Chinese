@@ -13,10 +13,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 
 @RegisterFeature
 public class ClientTimeFeature extends Feature {
-    public final IntSetting value = addSetting(new IntSetting("Time", 25000, 0, 25000));
+    public final IntSetting value = addSetting(new IntSetting("Time", "时间", 25000, 0, 25000));
 
     public ClientTimeFeature() {
-        super("ClientTime", "Sets game time client side.", FeatureCategory.of("Render"));
+        super("ClientTime", "客户端时间", "在客户端设置游戏时间。", FeatureCategory.of("Render"));
     }
 
     @SubscribeEvent

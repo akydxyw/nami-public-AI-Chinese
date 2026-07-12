@@ -14,7 +14,7 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 public class FastStairsFeature extends Feature {
 
     public FastStairsFeature() {
-        super("FastStairs", "Jumps on stairs precisely so you speed up.", FeatureCategory.of("Movement"), "fastclimb");
+        super("FastStairs", "快速楼梯", "在楼梯上精准跳跃以加速。", FeatureCategory.of("Movement"), "fastclimb");
     }
 
     @SubscribeEvent

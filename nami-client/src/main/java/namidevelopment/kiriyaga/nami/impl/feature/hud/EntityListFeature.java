@@ -29,12 +29,12 @@ public class EntityListFeature extends HudElementFeature {
     @SuppressWarnings("FieldCanBeLocal")
     private final long updateIntervalMs = 3000;
 
-    private final WhitelistSetting whitelist = addSetting(new WhitelistSetting("Whitelist", false, WhitelistSetting.Type.ENTITY));
-    public final EnumSetting<SortMode> sortMode = addSetting(new EnumSetting<>("Sort", SortMode.DESCENDING));
-    public final BoolSetting onlyLiving = addSetting(new BoolSetting("OnlyLiving", false));
+    private final WhitelistSetting whitelist = addSetting(new WhitelistSetting("Whitelist", "白名单", false, WhitelistSetting.Type.ENTITY));
+    public final EnumSetting<SortMode> sortMode = addSetting(new EnumSetting<>("Sort", "排序", SortMode.DESCENDING));
+    public final BoolSetting onlyLiving = addSetting(new BoolSetting("OnlyLiving", "仅生物", false));
 
     public EntityListFeature() {
-        super("EntityList", "Shows nearby entities", 0, 0, 50, 10);
+        super("实体列表", "显示附近的实体", 0, 0, 50, 10);
     }
 
     @SubscribeEvent

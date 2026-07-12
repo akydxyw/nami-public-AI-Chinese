@@ -26,15 +26,15 @@ import static namidevelopment.kiriyaga.api.NamiApi.CONFIG_SERVICE;
 //@RegisterFeature
 public class RandomFeature extends Feature {
 
-    public final BoolSetting logReceive = addSetting(new BoolSetting("PacketReceiveLog", true));
-    public final BoolSetting logSend = addSetting(new BoolSetting("PacketSendLog", true));
+    public final BoolSetting logReceive = addSetting(new BoolSetting("PacketReceiveLog", "接收数据包日志", true));
+    public final BoolSetting logSend = addSetting(new BoolSetting("PacketSendLog", "发送数据包日志", true));
 
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
     private File receiveFile;
     private File sendFile;
     public RandomFeature() {
-        super("RandomFeature", "Insane tech.", FeatureCategory.of("Client"));
+        super("RandomFeature", "随机", "疯狂的科技。", FeatureCategory.of("Client"));
     }
 
     @Override

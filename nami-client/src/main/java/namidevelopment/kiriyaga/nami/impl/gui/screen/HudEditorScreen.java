@@ -47,7 +47,7 @@ public class HudEditorScreen extends NamiScreen {
 
         categoryPositions.putIfAbsent(hudCategory, new Point(20, 20));
 
-        CategoryPanel panel = new CategoryPanel(hudCategory.getName());
+        CategoryPanel panel = new CategoryPanel(hudCategory.getDisplayName());
 
         for (Feature feature : FEATURE_SERVICE.getStorage().getByCategory(hudCategory)) {
             panel.addPanel(new FeaturePanel(feature));

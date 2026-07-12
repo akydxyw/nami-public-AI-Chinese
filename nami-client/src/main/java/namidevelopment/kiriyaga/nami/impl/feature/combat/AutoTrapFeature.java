@@ -22,13 +22,13 @@ import static namidevelopment.kiriyaga.api.util.BlockUtils.getSurround;
 @RegisterFeature
 public class AutoTrapFeature extends Feature {
 
-    public final BoolSetting face = addSetting(new BoolSetting("Face", true));
-    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", false));
+    public final BoolSetting face = addSetting(new BoolSetting("Face", "面部", true));
+    public final BoolSetting selfToggle = addSetting(new BoolSetting("SelfToggle", "自动关闭", false));
 
     private final TrapComponent trap;
 
     public AutoTrapFeature() {
-        super("AutoTrap", "Traps your target to prevent their movement.", FeatureCategory.of("Combat"), "autotrap");
+        super("AutoTrap", "自动陷阱", "困住目标以阻止其移动。", FeatureCategory.of("Combat"), "autotrap");
         this.trap = new TrapComponent(this);
     }
 

@@ -53,7 +53,7 @@ public class ClickGuiScreen extends NamiScreen {
             Point pos = oldPositions.getOrDefault(category, new Point(startX, startY));
             categoryPositions.put(category, pos);
 
-            CategoryPanel panel = new CategoryPanel(category.getName());
+            CategoryPanel panel = new CategoryPanel(category.getDisplayName());
 
             for (Feature feature : FEATURE_SERVICE.getStorage().getByCategory(category)) {
                 panel.addPanel(new FeaturePanel(feature));

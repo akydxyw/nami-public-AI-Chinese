@@ -13,10 +13,10 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;import static namidevelopme
 @RegisterFeature
 public class DurabilityFeature extends HudElementFeature {
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
 
     public DurabilityFeature() {
-        super("Durability", "Displays item durability in main hand.", 0, 0, 50, 9);
+        super("耐久", "显示主手物品耐久。", 0, 0, 50, 9);
     }
 
     @Override
@@ -26,9 +26,9 @@ public class DurabilityFeature extends HudElementFeature {
 
         ItemStack stack = mc.player.getMainHandItem();
         if (stack.isEmpty() || !stack.isDamageableItem()) {
-            width = FONT_SERVICE.getWidth("No item");
+            width = FONT_SERVICE.getWidth("无物品");
             height = FONT_SERVICE.getHeight();
-            return CAT_FORMAT.format("{global}No item");
+            return CAT_FORMAT.format("{global}无物品");
         }
 
         int maxDamage = stack.getMaxDamage();
@@ -41,7 +41,7 @@ public class DurabilityFeature extends HudElementFeature {
 
         String text;
         if (displayLabel.get()) {
-            text = "{global}Durability: {white}" + durabilityText;
+            text = "{global}耐久: {white}" + durabilityText;
         } else {
             text = "{white}" + durabilityText;
         }

@@ -50,17 +50,17 @@ public class SpeedMineFeature extends Feature {
     public enum Swap { NONE, NORMAL, SILENT121, SILENT}
     public enum is1_21Mode {OFFHAND, BOTH}
 
-    public final DoubleSetting range = addSetting(new DoubleSetting("Range", 4.5, 2.0, 7.0));
-    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", 1.0, 0.7, 1.0));
-    public final EnumSetting<Swap> swap = addSetting(new EnumSetting<>("Swap", Swap.NORMAL));
-    public final EnumSetting<Rotate> rotate = addSetting(new EnumSetting<>("Rotate", Rotate.NORMAL));
-    public final BoolSetting grim = addSetting(new BoolSetting("Grim", false));
-    public final BoolSetting doubleMine = addSetting(new BoolSetting("DoubleMine", false));
-    public final BoolSetting instant = addSetting(new BoolSetting("Instant", true));
-    public final IntSetting instantDelay = addSetting(new IntSetting("InstantDelay", 0, 0, 1000));
-    public final BoolSetting simulate = addSetting(new BoolSetting("Simulate", true));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting multitask = addSetting(new BoolSetting("Multitask", false));
+    public final DoubleSetting range = addSetting(new DoubleSetting("Range", "范围", 4.5, 2.0, 7.0));
+    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", "速度", 1.0, 0.7, 1.0));
+    public final EnumSetting<Swap> swap = addSetting(new EnumSetting<>("Swap", "切换", Swap.NORMAL));
+    public final EnumSetting<Rotate> rotate = addSetting(new EnumSetting<>("Rotate", "旋转", Rotate.NORMAL));
+    public final BoolSetting grim = addSetting(new BoolSetting("Grim", "Grim", false));
+    public final BoolSetting doubleMine = addSetting(new BoolSetting("DoubleMine", "双重挖掘", false));
+    public final BoolSetting instant = addSetting(new BoolSetting("Instant", "瞬间", true));
+    public final IntSetting instantDelay = addSetting(new IntSetting("InstantDelay", "瞬间延迟", 0, 0, 1000));
+    public final BoolSetting simulate = addSetting(new BoolSetting("Simulate", "模拟", true));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final BoolSetting multitask = addSetting(new BoolSetting("Multitask", "多任务", false));
     public final EnumSetting<is1_21Mode> is1_21 = addSetting(new EnumSetting<is1_21Mode>("1.21", is1_21Mode.OFFHAND));
 
 
@@ -74,7 +74,7 @@ public class SpeedMineFeature extends Feature {
 
     // Thats first packet mine i made like in my whole life, its bad, and there is issues, im gonna finish it, and maybe rewrite from scratch later
     public SpeedMineFeature() {
-        super("SpeedMine", "Increases speed of mining.", FeatureCategory.of("World"));
+        super("SpeedMine", "快速挖掘", "提高挖掘速度。", FeatureCategory.of("World"));
         is1_21.setShowCondition(()-> !multitask.get());
         instantDelay.setShowCondition(instant::get);
     }

@@ -25,15 +25,15 @@ public class PatchFeature extends Feature {
 
     public enum TPSCooldownSync {DISABLED, LAST, AVERAGE}
 
-    public final BoolSetting grimAttackVelocity = addSetting(new BoolSetting("GrimAttackVelocity", false));
+    public final BoolSetting grimAttackVelocity = addSetting(new BoolSetting("GrimAttackVelocity", "Grim攻击速度", false));
     //public final BoolSetting grimNoSlowDisabler = addSetting(new BoolSetting("NoSlowDisabler", false));
-    public final BoolSetting slotDragDesync = addSetting(new BoolSetting("SlotDragDesync", false));
-    public final BoolSetting silentSwapFix = addSetting(new BoolSetting("SilentSwapFix", false));
-    public final BoolSetting setSlotDebug = addSetting(new BoolSetting("SetSlotDebug", false));
-    public final EnumSetting<TPSCooldownSync> tpsCooldownSync = addSetting(new EnumSetting<>("TPSCooldownSync", TPSCooldownSync.DISABLED));
+    public final BoolSetting slotDragDesync = addSetting(new BoolSetting("SlotDragDesync", "槽位拖动不同步", false));
+    public final BoolSetting silentSwapFix = addSetting(new BoolSetting("SilentSwapFix", "静默切换修复", false));
+    public final BoolSetting setSlotDebug = addSetting(new BoolSetting("SetSlotDebug", "设置槽位调试", false));
+    public final EnumSetting<TPSCooldownSync> tpsCooldownSync = addSetting(new EnumSetting<>("TPSCooldownSync", "TPS冷却同步", TPSCooldownSync.DISABLED));
 
     public PatchFeature() {
-        super("Patch", "Any kind of hotfixes you should apply based on what server and ac u on.", FeatureCategory.of("Client"));
+        super("Patch", "补丁", "根据你所在的服务器和反作弊应用各种热修复。", FeatureCategory.of("Client"));
         if (!this.isEnabled())
             this.toggle();
         setSlotDebug.setShow(false);

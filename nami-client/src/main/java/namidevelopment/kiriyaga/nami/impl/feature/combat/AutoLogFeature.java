@@ -29,21 +29,21 @@ import static namidevelopment.kiriyaga.api.NamiApi.*;
 @RegisterFeature
 public class AutoLogFeature extends Feature {
 
-    public final BoolSetting health = addSetting(new BoolSetting("Health", false));
-    public final IntSetting onHealth = addSetting(new IntSetting("OnHealth", 12, 0, 36));
-    public final BoolSetting totems = addSetting(new BoolSetting("Totems", false));
-    public final IntSetting onTotems = addSetting(new IntSetting("OnTotems", 0, 0, 10));
-    public final BoolSetting level = addSetting(new BoolSetting("Level", false));
-    public final IntSetting onLevel = addSetting(new IntSetting("OnLevel", 0, 0, 15000));
-    public final BoolSetting onRender = addSetting(new BoolSetting("OnRender", false));
-    public final BoolSetting packet = addSetting(new BoolSetting("Packet", false));
-    public final BoolSetting onPop = addSetting(new BoolSetting("OnPop", false));
+    public final BoolSetting health = addSetting(new BoolSetting("Health", "生命", false));
+    public final IntSetting onHealth = addSetting(new IntSetting("OnHealth", "生命阈值", 12, 0, 36));
+    public final BoolSetting totems = addSetting(new BoolSetting("Totems", "图腾", false));
+    public final IntSetting onTotems = addSetting(new IntSetting("OnTotems", "图腾阈值", 0, 0, 10));
+    public final BoolSetting level = addSetting(new BoolSetting("Level", "高度", false));
+    public final IntSetting onLevel = addSetting(new IntSetting("OnLevel", "高度阈值", 0, 0, 15000));
+    public final BoolSetting onRender = addSetting(new BoolSetting("OnRender", "渲染距离内", false));
+    public final BoolSetting packet = addSetting(new BoolSetting("Packet", "封包", false));
+    public final BoolSetting onPop = addSetting(new BoolSetting("OnPop", "图腾爆裂时", false));
 
     private boolean triggeredLevel = false;
     private boolean loggingOut = false;
 
     public AutoLogFeature() {
-        super("AutoLog", "Automatically logs out in certain conditions.", FeatureCategory.of("Combat"), "autolog", "panic", "logout");
+        super("AutoLog", "自动下线", "在特定条件下自动下线。", FeatureCategory.of("Combat"), "autolog", "panic", "logout");
         packet.setShowCondition(() -> onRender.get());
         onHealth.setShowCondition(health::get);
         onTotems.setShowCondition(totems::get);
@@ -72,7 +72,7 @@ public class AutoLogFeature extends Feature {
 
         if (level.get()) {
             if (triggeredLevel && player.getBlockY() <= onLevel.get()) {
-                logOut("Too low level: {global}" + player.getBlockY() + "{white} Blocks");
+                logOut("高度过低：{global}" + player.getBlockY() + "{white} 方块");
                 triggeredLevel = false;
                 return;
             }
@@ -83,12 +83,12 @@ public class AutoLogFeature extends Feature {
         }
 
         if (health.get() && player.getHealth() <= onHealth.get()) {
-            logOut("Low health: {global}" + player.getHealth() + "{white} HP");
+            logOut("生命过低：{global}" + player.getHealth() + "{white} HP");
             return;
         }
 
         if (totems.get() && PlayerUtils.getTotemCount() <= onTotems.get()) {
-            logOut("Not enough totems: {global}" + PlayerUtils.getTotemCount() + "{white} Totems left");
+            logOut("图腾不足：{global}" + PlayerUtils.getTotemCount() + "{white} 个图腾剩余");
             return;
         }
 
@@ -96,7 +96,7 @@ public class AutoLogFeature extends Feature {
             for (Entity other : EntityUtils.getOtherPlayers()) {
                 if (!SOCIALS_SERVICE.isFriend(other.getName().getString())) {
                     double distance = player.distanceTo(other);
-                    logOut("Untrusted player in range: " + player.getName().toString() + " (" + String.format("%.1f", distance) + " blocks)");
+                    logOut("范围内有未知玩家：" + player.getName().toString() + "（" + String.format("%.1f", distance) + " 方块）");
                     return;
                 }
             }
@@ -119,7 +119,7 @@ public class AutoLogFeature extends Feature {
                     && packet.getEventId() == 35
                     && onPop.get()) {
 
-                logOut("AutoLog: totem got popped.");
+                logOut("自动下线：图腾已爆裂。");
             }
         });
     }
@@ -137,7 +137,7 @@ public class AutoLogFeature extends Feature {
                 return;
 
             double distance = MC.player.distanceTo(player);
-            logOut("Untrusted player in range: " + player.getName().toString() + " (" + String.format("%.1f", distance) + " blocks)");
+            logOut("范围内有未知玩家：" + player.getName().toString() + "（" + String.format("%.1f", distance) + " 方块）");
         }
     }
 
@@ -152,7 +152,7 @@ public class AutoLogFeature extends Feature {
             EVENT_SERVICE.post(new DissconectEvent());} else {
             if (MC.getConnection() != null) {
                 triggerToggle();
-                MC.getConnection().handleDisconnect(new ClientboundDisconnectPacket(CAT_FORMAT.format("AutoLog: " + reason)));
+                MC.getConnection().handleDisconnect(new ClientboundDisconnectPacket(CAT_FORMAT.format("自动下线：" + reason)));
             }
         }
     }

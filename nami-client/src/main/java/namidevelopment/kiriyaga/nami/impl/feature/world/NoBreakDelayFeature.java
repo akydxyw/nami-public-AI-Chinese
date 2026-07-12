@@ -8,6 +8,6 @@ import namidevelopment.kiriyaga.api.annotation.RegisterFeature;
 public class NoBreakDelayFeature extends Feature {
 
     public NoBreakDelayFeature() {
-        super("NoBreakDelay", "Removes vanilla break delay which increases break speed.", FeatureCategory.of("World"), "nobreakdelay");
+        super("NoBreakDelay", "无破坏延迟", "移除原版破坏延迟，从而提高破坏速度。", FeatureCategory.of("World"), "nobreakdelay");
     }
 }

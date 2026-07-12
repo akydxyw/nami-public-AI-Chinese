@@ -34,8 +34,8 @@ public abstract class Feature {
         this.identifier = identifier;
         expanded = false;
 
-        this.keyBind = new KeyBindSetting("Bind", KeyBindSetting.KEY_NONE);
-        this.drawn = new BoolSetting("Drawn", true);
+        this.keyBind = new KeyBindSetting("Bind", "绑定", KeyBindSetting.KEY_NONE);
+        this.drawn = new BoolSetting("Drawn", "显示", true);
         this.drawn.setShow(false);
         addSetting(keyBind);
         addSetting(drawn);
@@ -69,7 +69,7 @@ public abstract class Feature {
         }
 
         if (MC.level != null) {
-            Component message = CAT_FORMAT.format("{global}"+name + "{gray} toggled" + (enabled ? " {green}on" : " {red}off") + "{gray}.");
+            Component message = CAT_FORMAT.format("{global}"+name + "{gray} 已" + (enabled ? "{green}开启" : "{red}关闭") + "{gray}。");
             CHAT_SERVICE.sendPersistent(name, message);
         }
     }
@@ -129,6 +129,7 @@ public abstract class Feature {
     public boolean matches(String input) {
         String lower = input.toLowerCase();
         if (lower.equals(name.toLowerCase())) return true;
+        if (lower.equals(identifier.toLowerCase())) return true;
         for (String alias : aliases) {
             if (lower.equals(alias.toLowerCase())) return true;
         }
@@ -144,12 +145,20 @@ public abstract class Feature {
             if (sname.toLowerCase().equals(lower)) {
                 return setting;
             }
+            String sid = setting.getIdentifier();
+            if (sid != null && sid.toLowerCase().equals(lower)) {
+                return setting;
+            }
         }
         String compact = lower.replaceAll("\\s", "");
         for (Setting<?> setting : settings) {
             String sname = setting.getName();
             if (sname == null) continue;
             if (sname.toLowerCase().replaceAll("\\s", "").equals(compact)) {
+                return setting;
+            }
+            String sid = setting.getIdentifier();
+            if (sid != null && sid.toLowerCase().replaceAll("\\s", "").equals(compact)) {
                 return setting;
             }
         }

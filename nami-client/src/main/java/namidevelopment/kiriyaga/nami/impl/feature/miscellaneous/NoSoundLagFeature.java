@@ -26,11 +26,11 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class NoSoundLagFeature extends Feature { // TODO whitelist sounds
 // todo: rewrite this garbage
-    public final BoolSetting always = addSetting(new BoolSetting("Always", false));
-    public final BoolSetting armor = addSetting(new BoolSetting("Armor", true));
-    public final BoolSetting withers = addSetting(new BoolSetting("Withers", true));
-    public final BoolSetting firework = addSetting(new BoolSetting("Firework", false));
-    public final BoolSetting elytra = addSetting(new BoolSetting("Elytra", true));
+    public final BoolSetting always = addSetting(new BoolSetting("Always", "始终", false));
+    public final BoolSetting armor = addSetting(new BoolSetting("Armor", "护甲", true));
+    public final BoolSetting withers = addSetting(new BoolSetting("Withers", "凋灵", true));
+    public final BoolSetting firework = addSetting(new BoolSetting("Firework", "烟花", false));
+    public final BoolSetting elytra = addSetting(new BoolSetting("Elytra", "鞘翅", true));
 
     private static final Set<Holder<SoundEvent>> ARMOR_SOUNDS = Sets.newHashSet(
             SoundEvents.ARMOR_EQUIP_GENERIC,
@@ -71,7 +71,7 @@ public class NoSoundLagFeature extends Feature { // TODO whitelist sounds
     private long lastClearTime = System.currentTimeMillis();
 
     public NoSoundLagFeature() {
-        super("NoSoundLag", "Sound tweaks.", FeatureCategory.of("Miscellaneous"), "nosoundlag");
+        super("NoSoundLag", "防声音卡顿", "声音调整。", FeatureCategory.of("Miscellaneous"), "nosoundlag");
         elytra.setShowCondition(always::get );
     }
 

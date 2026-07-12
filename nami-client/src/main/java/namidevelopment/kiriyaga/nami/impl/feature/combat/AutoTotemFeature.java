@@ -35,15 +35,15 @@ public class AutoTotemFeature extends Feature {
 
     private enum Offhand { CRYSTAL, GAPPLE, ITEMFRAME, MENDING, TOTEM}
 
-    public final IntSetting health = addSetting(new IntSetting("Health", 12, 2, 36));
-    public final BoolSetting offhandOverride = addSetting(new BoolSetting("Override", false));
-    public final EnumSetting<Offhand> overrideItem = addSetting(new EnumSetting<>("Item", Offhand.TOTEM));
-    public final BoolSetting gapOverride = addSetting(new BoolSetting("GapOverride", true));
-    public final BoolSetting fastSwap = addSetting(new BoolSetting("Alternative", true));
-    public final BoolSetting mainhand = addSetting(new BoolSetting("Mainhand", false));
-    public final BoolSetting mainhandGapple = addSetting(new BoolSetting("MainhandGapple", false));
-    public final IntSetting mainhandSlot = addSetting(new IntSetting("Slot", 8, 0, 8));
-    public final BoolSetting deathLog = addSetting(new BoolSetting("Log", false));
+    public final IntSetting health = addSetting(new IntSetting("Health", "生命", 12, 2, 36));
+    public final BoolSetting offhandOverride = addSetting(new BoolSetting("Override", "覆盖", false));
+    public final EnumSetting<Offhand> overrideItem = addSetting(new EnumSetting<>("Item", "物品", Offhand.TOTEM));
+    public final BoolSetting gapOverride = addSetting(new BoolSetting("GapOverride", "金苹果覆盖", true));
+    public final BoolSetting fastSwap = addSetting(new BoolSetting("Alternative", "备用", true));
+    public final BoolSetting mainhand = addSetting(new BoolSetting("Mainhand", "主手", false));
+    public final BoolSetting mainhandGapple = addSetting(new BoolSetting("MainhandGapple", "主手金苹果", false));
+    public final IntSetting mainhandSlot = addSetting(new IntSetting("Slot", "槽位", 8, 0, 8));
+    public final BoolSetting deathLog = addSetting(new BoolSetting("Log", "日志", false));
 
     private final Map<String, String> deathReasons = new ConcurrentHashMap<>();
 
@@ -53,7 +53,7 @@ public class AutoTotemFeature extends Feature {
     public boolean mainhandActive = false;
 
     public AutoTotemFeature() {
-        super("AutoTotem", "Automatically places totem in your hand.", FeatureCategory.of("Combat"), "autototem");
+        super("AutoTotem", "自动图腾", "自动将图腾放入手中。", FeatureCategory.of("Combat"), "autototem");
         mainhandSlot.setShowCondition(mainhand::get);
         overrideItem.setShowCondition(offhandOverride::get);
         gapOverride.setShowCondition(offhandOverride::get);
@@ -272,19 +272,19 @@ public class AutoTotemFeature extends Feature {
         long timeSinceLastSwap = System.currentTimeMillis() - lastAttemptTime;
 
         if (!hasTotem) {
-            addDeathReason("notots", "NO_TOTEMS");
+            addDeathReason("notots", "无图腾");
         } else {
             removeDeathReason("notots");
         }
 
         if (ping > 125) {
-            addDeathReason("highping", "HIGH_PING " + ping + " ms");
+            addDeathReason("highping", "高延迟 " + ping + " 毫秒");
         } else {
             removeDeathReason("highping");
         }
 
         if (deathReasons.isEmpty()) {
-            addDeathReason("unknown", "UNKNOWN_CAUSE");
+            addDeathReason("unknown", "未知原因");
         } else {
             removeDeathReason("unknown");
         }
@@ -296,12 +296,12 @@ public class AutoTotemFeature extends Feature {
 
         boolean pendingTotem = false;
         Component message = CAT_FORMAT.format(
-                "\n{gray}=== {global}AutoTotem{gray} ===\n" +
-                        "Death reasons:\n{global}" + reasonsBuilder.toString() + "{gray}\n" +
-                        "Ping: {global}" + ping + " ms{gray}\n" +
-                        "Totems Available: {global}" + totemCount + "{gray}\n" +
-                        "Pending Totem: {global}" + pendingTotem + "{gray}\n" +
-                        "Last Swap Attempt: {global}" + timeSinceLastSwap + " ms ago{gray}\n" +
+                "\n{gray}=== {global}自动图腾{gray} ===\n" +
+                        "死亡原因：\n{global}" + reasonsBuilder.toString() + "{gray}\n" +
+                        "延迟：{global}" + ping + " 毫秒{gray}\n" +
+                        "可用图腾：{global}" + totemCount + "{gray}\n" +
+                        "待定图腾：{global}" + pendingTotem + "{gray}\n" +
+                        "上次切换尝试：{global}" + timeSinceLastSwap + " 毫秒前{gray}\n" +
                         "============================"
         );
 

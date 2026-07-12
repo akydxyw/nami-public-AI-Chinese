@@ -27,7 +27,7 @@ public class SafeWalkComponent {
     public EnumSetting<Mode> mode;
 
     public void register(Feature feature) {
-        mode = feature.addSetting(new EnumSetting<>("Sneak", Mode.CORNERS));
+        mode = feature.addSetting(new EnumSetting<>("Sneak", "潜行", Mode.CORNERS));
     }
 
     public void onDisable() {

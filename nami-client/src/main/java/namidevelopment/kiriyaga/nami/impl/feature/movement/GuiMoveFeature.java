@@ -42,10 +42,10 @@ public class GuiMoveFeature extends Feature {
     private Screen lastScreen = null;
     private final java.util.Deque<ServerboundContainerClickPacket> clickBuffer = new java.util.ArrayDeque<>();
 
-    public final BoolSetting _2b2t = addSetting(new BoolSetting("2b2t", true));
+    public final BoolSetting _2b2t = addSetting(new BoolSetting("2b2t", "2b2t", true));
 
     public GuiMoveFeature() {
-        super("GuiMove", "Allows movement in most GUIs.", FeatureCategory.of("Movement"), "guimove");
+        super("GuiMove", "界面移动", "允许在大多数界面中移动。", FeatureCategory.of("Movement"), "guimove");
     }
 
     @Override

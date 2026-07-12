@@ -11,7 +11,7 @@ public class SetbackFeature extends HudElementFeature {
 
 
     public SetbackFeature() {
-        super("Setback", "Displays setback warning once server cancelled any of your packets.", 0, 0, 100, 9);
+        super("回弹", "服务器取消任何数据包时显示回弹警告。", 0, 0, 100, 9);
     }
 
     @Override
@@ -20,12 +20,12 @@ public class SetbackFeature extends HudElementFeature {
         if (SERVER_SERVICE.hasElapsedSinceSetback(5000))
             return Component.empty();
 
-        if (MC.isLocalServer() || MC.level == null) return Component.nullToEmpty("Setback:");
+        if (MC.isLocalServer() || MC.level == null) return Component.nullToEmpty("回弹:");
 
         long last = SERVER_SERVICE.getLastSetbackTime();
         double delta = (System.currentTimeMillis() - last) / 1000.0;
         double rounded = Math.round(delta * 100.0) / 100.0;
-        String warningText = "Setback was: " + String.format("%.2f", rounded) + "s";
+        String warningText = "回弹: " + String.format("%.2f", rounded) + "s";
 
         width = FONT_SERVICE.getWidth(warningText);
         height = FONT_SERVICE.getHeight();

@@ -16,7 +16,7 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 public class ParkourFeature extends Feature {
 
     public ParkourFeature() {
-        super("Parkour", "Automatically jumps at the edge of blocks.", FeatureCategory.of("Movement"));
+        super("Parkour", "跑酷", "在方块边缘自动跳跃。", FeatureCategory.of("Movement"));
     }
 
     @Override

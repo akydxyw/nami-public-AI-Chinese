@@ -13,7 +13,7 @@ import static namidevelopment.kiriyaga.api.NamiApi.MC;
 @RegisterFeature
 public class NoWeatherFeature extends Feature {
     public NoWeatherFeature() {
-        super("NoWeather", "Disables rendering of weather.", FeatureCategory.of("Render"), "noweather", "nowether", "nowather");
+        super("NoWeather", "无天气", "禁用天气渲染。", FeatureCategory.of("Render"), "noweather", "nowether", "nowather");
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)
@@ -26,12 +26,12 @@ public class NoWeatherFeature extends Feature {
 
         if (MC.level.isRaining()) {
             if (MC.level.isThundering()) {
-                weather = "thunder";
+                weather = "雷暴";
             } else {
-                weather = "rain";
+                weather = "下雨";
             }
         } else {
-            weather = "clear";
+            weather = "晴朗";
         }
 
         this.addDisplayInfo(weather);

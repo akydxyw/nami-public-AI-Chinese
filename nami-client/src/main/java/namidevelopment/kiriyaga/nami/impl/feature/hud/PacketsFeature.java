@@ -26,13 +26,13 @@ public class PacketsFeature extends HudElementFeature {
 
     public enum LayoutMode { HORIZONTAL, VERTICAL}
 
-    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", true));
-    public final EnumSetting<LayoutMode> layout = addSetting(new EnumSetting<>("Layout", LayoutMode.HORIZONTAL));
+    public final BoolSetting displayLabel = addSetting(new BoolSetting("Label", "标签", true));
+    public final EnumSetting<LayoutMode> layout = addSetting(new EnumSetting<>("Layout", "布局", LayoutMode.HORIZONTAL));
 
     private final List<MsPacket> packets = new ArrayList<>();
 
     public PacketsFeature() {
-        super("Packets", "Displays sended packets.", 0, 0, 100, 30);
+        super("数据包", "显示已发送的数据包。", 0, 0, 100, 30);
     }
 
     @SubscribeEvent(priority = EventPriority.LOW)
@@ -98,7 +98,7 @@ public class PacketsFeature extends HudElementFeature {
         String text = "";
 
         if (displayLabel.get()) {
-            text += "{global}Packets ";
+            text += "{global}数据包 ";
         }
 
         text += "{secondary}({white}M:" + move +
@@ -133,22 +133,22 @@ public class PacketsFeature extends HudElementFeature {
         int lineHeight = FONT_SERVICE.getHeight() + 1;
         int offsetY = 0;
 
-        lines.add(new TextElement(CAT_FORMAT.format("{global}Move: {white}" + move), 0, offsetY));
+        lines.add(new TextElement(CAT_FORMAT.format("{global}移动: {white}" + move), 0, offsetY));
         offsetY += lineHeight;
 
-        lines.add(new TextElement(CAT_FORMAT.format("{global}Click: {white}" + click), 0, offsetY));
+        lines.add(new TextElement(CAT_FORMAT.format("{global}点击: {white}" + click), 0, offsetY));
         offsetY += lineHeight;
 
-        lines.add(new TextElement(CAT_FORMAT.format("{global}Swap: {white}" + swaps), 0, offsetY));
+        lines.add(new TextElement(CAT_FORMAT.format("{global}切换: {white}" + swaps), 0, offsetY));
         offsetY += lineHeight;
 
-        lines.add(new TextElement(CAT_FORMAT.format("{global}Action: {white}" + action), 0, offsetY));
+        lines.add(new TextElement(CAT_FORMAT.format("{global}动作: {white}" + action), 0, offsetY));
         offsetY += lineHeight;
 
-        lines.add(new TextElement(CAT_FORMAT.format("{global}Interact: {white}" + interact), 0, offsetY));
+        lines.add(new TextElement(CAT_FORMAT.format("{global}交互: {white}" + interact), 0, offsetY));
         offsetY += lineHeight;
 
-        lines.add(new TextElement(CAT_FORMAT.format("{global}Global: {white}" + global), 0, offsetY));
+        lines.add(new TextElement(CAT_FORMAT.format("{global}总计: {white}" + global), 0, offsetY));
         offsetY += lineHeight;
 
         int maxWidth = lines.stream().mapToInt(te -> FONT_SERVICE.getWidth(te.text().getString().replaceAll("\\{.*?}", ""))).max().orElse(0);

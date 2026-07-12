@@ -56,23 +56,23 @@ public class TrapComponent {
     private final List<BlockPos> placedPositions = new ArrayList<>(); // todo: finish this
 
     public TrapComponent(Feature feature) {
-        range = feature.addSetting(new DoubleSetting("Range", 4.50, 1.0, 6.0));
-        airPlace = feature.addSetting(new BoolSetting("AirPlace", false));
-        grim = feature.addSetting(new BoolSetting("Grim", false));
-        rotate = feature.addSetting(new BoolSetting("Rotate", true));
-        strictDirection = feature.addSetting(new BoolSetting("StrictDirection", true));
-        swapSilent = feature.addSetting(new BoolSetting("SwapSilent", true));
-        multiTask = feature.addSetting(new BoolSetting("MultiTask", false));
-        simulate = feature.addSetting(new BoolSetting("Simulate", false));
-        antiBreak = feature.addSetting(new BoolSetting("AntiBreak", false));
-        swing = feature.addSetting(new BoolSetting("Swing", true));
-        render = feature.addSetting(new BoolSetting("Render", true));
-        attack = feature.addSetting(new BoolSetting("Attack", false));
-        attackRotate = feature.addSetting(new BoolSetting("AttackRotate","Rotate", true));
-        attackRange = feature.addSetting(new DoubleSetting("AttackRange","Range", 3.00, 1.0, 6.0));
-        attackAge = feature.addSetting(new IntSetting("Age", 5, 0, 20));
-        attackMultiTask = feature.addSetting(new BoolSetting("AttackMultitask","Multitask", true));
-        attackSwing = feature.addSetting(new BoolSetting("AttackSwing","Swing", true));
+        range = feature.addSetting(new DoubleSetting("Range", "范围", 4.50, 1.0, 6.0));
+        airPlace = feature.addSetting(new BoolSetting("AirPlace", "空中放置", false));
+        grim = feature.addSetting(new BoolSetting("Grim", "Grim", false));
+        rotate = feature.addSetting(new BoolSetting("Rotate", "旋转", true));
+        strictDirection = feature.addSetting(new BoolSetting("StrictDirection", "严格方向", true));
+        swapSilent = feature.addSetting(new BoolSetting("SwapSilent", "静默切换", true));
+        multiTask = feature.addSetting(new BoolSetting("MultiTask", "多任务", false));
+        simulate = feature.addSetting(new BoolSetting("Simulate", "模拟", false));
+        antiBreak = feature.addSetting(new BoolSetting("AntiBreak", "防破坏", false));
+        swing = feature.addSetting(new BoolSetting("Swing", "挥动", true));
+        render = feature.addSetting(new BoolSetting("Render", "渲染", true));
+        attack = feature.addSetting(new BoolSetting("Attack", "攻击", false));
+        attackRotate = feature.addSetting(new BoolSetting("AttackRotate","旋转", true));
+        attackRange = feature.addSetting(new DoubleSetting("AttackRange","范围", 3.00, 1.0, 6.0));
+        attackAge = feature.addSetting(new IntSetting("Age", "年龄", 5, 0, 20));
+        attackMultiTask = feature.addSetting(new BoolSetting("AttackMultitask","多任务", true));
+        attackSwing = feature.addSetting(new BoolSetting("AttackSwing","挥动", true));
 
 
         grim.setShowCondition(airPlace::get);

@@ -26,14 +26,14 @@ import static namidevelopment.kiriyaga.api.util.BlockUtils.isPlaceable;
 @RegisterFeature
 public class FeetTrapFeature extends Feature {
 
-    public final BoolSetting extension = addSetting(new BoolSetting("Extension", false));
-    public final BoolSetting jumpDisable = addSetting(new BoolSetting("JumpDisable", false));
-    public final BoolSetting corners = addSetting(new BoolSetting("Corners", false));
+    public final BoolSetting extension = addSetting(new BoolSetting("Extension", "延伸", false));
+    public final BoolSetting jumpDisable = addSetting(new BoolSetting("JumpDisable", "跳跃关闭", false));
+    public final BoolSetting corners = addSetting(new BoolSetting("Corners", "角落", false));
 
     private final TrapComponent trap;
 
     public FeetTrapFeature() {
-        super("FeetTrap", "Places blocks around your feet.", FeatureCategory.of("Combat"), "feettrap");
+        super("FeetTrap", "脚部陷阱", "在你脚周围放置方块。", FeatureCategory.of("Combat"), "feettrap");
         this.trap = new TrapComponent(this);
     }
 

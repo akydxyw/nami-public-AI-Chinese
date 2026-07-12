@@ -27,11 +27,11 @@ public class FeatureListFeature extends HudElementFeature {
     private int cachedWidth = 0;
     private int cachedHeight = 0;
 
-    public final BoolSetting showDisplayName = addSetting(new BoolSetting("ShowDisplay", true));
-    public final EnumSetting<SortMode> sortMode = addSetting(new EnumSetting<>("Sort", SortMode.DESCENDING));
+    public final BoolSetting showDisplayName = addSetting(new BoolSetting("ShowDisplay", "显示信息", true));
+    public final EnumSetting<SortMode> sortMode = addSetting(new EnumSetting<>("Sort", "排序", SortMode.DESCENDING));
 
     public FeatureListFeature() {
-        super("FeatureList", "Shows enabled and drawn Features.", 0, 0, 50, 10);
+        super("功能列表", "显示已启用并绘制的功能。", 0, 0, 50, 10);
     }
 
     private static class FeatureAnimationState {

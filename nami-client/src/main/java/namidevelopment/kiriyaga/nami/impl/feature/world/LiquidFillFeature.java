@@ -44,18 +44,18 @@ public class LiquidFillFeature extends Feature {
     }
 
     // TODO: shift ticks, or maybe not?
-    public final DoubleSetting range = addSetting(new DoubleSetting("Range", 4.5, 1.0, 6.0));
-    public final IntSetting delay = addSetting(new IntSetting("Delay", 4, 1, 10));
-    public final BoolSetting swing = addSetting(new BoolSetting("Swing", true));
-    public final BoolSetting grim = addSetting(new BoolSetting("Grim", false));
-    public final EnumSetting<LiquidType> liquidType = addSetting(new EnumSetting<>("Liquid", LiquidType.BOTH));
-    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", true));
+    public final DoubleSetting range = addSetting(new DoubleSetting("Range", "范围", 4.5, 1.0, 6.0));
+    public final IntSetting delay = addSetting(new IntSetting("Delay", "延迟", 4, 1, 10));
+    public final BoolSetting swing = addSetting(new BoolSetting("Swing", "挥手", true));
+    public final BoolSetting grim = addSetting(new BoolSetting("Grim", "Grim", false));
+    public final EnumSetting<LiquidType> liquidType = addSetting(new EnumSetting<>("Liquid", "液体", LiquidType.BOTH));
+    public final BoolSetting rotate = addSetting(new BoolSetting("Rotate", "旋转", true));
 
     private int cooldown = 0;
     private BlockPos renderPos = null;
 
     public LiquidFillFeature() {
-        super("LiquidFill", "Automatically fills nearby liquids with blocks.", FeatureCategory.of("World"), "liquidfill");
+        super("LiquidFill", "液体填充", "自动用方块填充附近的液体。", FeatureCategory.of("World"), "liquidfill");
     }
 
     @Override

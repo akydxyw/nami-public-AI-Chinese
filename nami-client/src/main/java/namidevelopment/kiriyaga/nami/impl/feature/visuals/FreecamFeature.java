@@ -22,9 +22,9 @@ import static namidevelopment.kiriyaga.api.NamiApi.ROTATION_SERVICE;
 
 @RegisterFeature
 public class FreecamFeature extends Feature {
-    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", 0.5, 0.1, 5.0));
-    public final DoubleSetting accelerate = addSetting(new DoubleSetting("Accelerate", 2.3, 1.0, 3.0));
-    public final BoolSetting look = addSetting(new BoolSetting("Look", true));
+    public final DoubleSetting speed = addSetting(new DoubleSetting("Speed", "速度", 0.5, 0.1, 5.0));
+    public final DoubleSetting accelerate = addSetting(new DoubleSetting("Accelerate", "加速", 2.3, 1.0, 3.0));
+    public final BoolSetting look = addSetting(new BoolSetting("Look", "注视", true));
 
     @SuppressWarnings("FieldCanBeLocal")
     private double currentFactor = 1.0;
@@ -43,7 +43,7 @@ public class FreecamFeature extends Feature {
     private boolean forward, back, left, right, up, down;
 
     public FreecamFeature() {
-        super("Freecam", "Fly around freely without moving your player.", FeatureCategory.of("Render"), "freecum");
+        super("Freecam", "自由视角", "自由飞行而不移动玩家。", FeatureCategory.of("Render"), "freecum");
     }
 
     @Override
