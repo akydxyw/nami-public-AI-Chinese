@@ -1,9 +1,9 @@
 # Nami
 
-This is the last public version of nami made for minecraft 1.21.11
-It wont receive any updates
+这是 Nami 为 Minecraft 1.21.11 制作的最后公开版本  
+不会再收到任何更新
 
-### Join our discord - https://discord.gg/auHTtNAqRq
+### 加入我们的 Discord - https://discord.gg/auHTtNAqRq
 
 <p>
   <a href="https://github.com/NamiDevelopment/nami/releases">
@@ -25,18 +25,18 @@ It wont receive any updates
 ![# badge](assets/readme/works-on-selfmerging.svg)
 
 
-**Nami** is a modular and lightweight anarchy client base built for PVE and automation.  
+**Nami** 是一个模块化、轻量级的无政府客户端基础，专为 PVE 和自动化而构建。
 
-Most popular Minecraft clients are closed-source, paid, and obfuscated, making them difficult to audit or trust. Some may include backdoors or malicious code.
+大多数流行的 Minecraft 客户端都是闭源、付费且经过混淆的，这使得它们难以审计或信任。有些可能包含后门或恶意代码。
 
-This project started as a clean, open-source alternative aiming to be transparent, secure, and easy to extend without relying on unsafe third-party clients.
+本项目作为一个干净的开源替代方案而诞生，旨在提供透明、安全且易于扩展的体验，无需依赖不安全的第三方客户端。
 
 ---
 
-## Screenshots
+## 截图
 
 <details>
-<summary>View screenshots</summary>
+<summary>查看截图</summary>
 
 <img width="1920" height="1080" alt="ClickGUI" src="assets/clickgui.png" />
 <img width="1920" height="1080" alt="HudEditor" src="assets/hudeditor.png" />
@@ -47,69 +47,69 @@ This project started as a clean, open-source alternative aiming to be transparen
 
 ---
 
-## Plugin development
+## 插件开发
 
-See https://github.com/NamiDevelopment/template-plugin for information
+请参阅 https://github.com/NamiDevelopment/template-plugin 获取相关信息
 
 ---
 
-## FAQ
+## 常见问题
 
 <details>
-<summary>How to open ClickGUI?</summary>
+<summary>如何打开 ClickGUI？</summary>
 
-Default keybind is: P  
+默认快捷键是：P
 
 </details>
 
 <details>
-<summary>What is the command prefix?</summary>
+<summary>命令前缀是什么？</summary>
 
-The default command prefix is `-`.
+默认命令前缀是 `-`。
 
 </details>
 
 ---
 
-## Requirements
+## 环境要求
 
 - Java 21  
 - Gradle 8+  
 - Minecraft 1.21.11 
-- Fabric loader, API
+- Fabric loader、API
 
 ---
 
-## How to Build
+## 如何构建
 
-1. Clone the repository:
+1. 克隆仓库：
 
     ```bash
     git clone https://github.com/NamiDevelopment/Nami.git  
     cd nami
     ```
-2. In order to get nami-api dependency,you need to configure your PAT-token in your root .gradle/gradle.dependency
+2. 为了获取 nami-api 依赖，你需要在根目录的 .gradle/gradle.dependency 中配置你的 PAT 令牌
 
-3. Build with Gradle:
+3. 使用 Gradle 构建：
 
     ```bash
     ./gradlew build
     ```
 
-The compiled JAR will be located at:  
+编译后的 JAR 文件位于：  
 `build/libs/nami-<version>.jar`
 
-nami-client is packaged with nami-api inside of it.
+nami-client 已将 nami-api 打包在其中。
 
 ---
 
-## License
+## 许可证
 
-This project is licensed under the MIT License. You are free to contribute, distribute, fork, or reuse any part.
+本项目采用 MIT 许可证授权。你可以自由地贡献、分发、复刻或复用其中的任何部分。
 
 ---
 
-## Special Thanks
+## 特别感谢
 
 - [cattyngmd](https://github.com/cattyngmd)
 
